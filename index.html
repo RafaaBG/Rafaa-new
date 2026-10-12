@@ -16,7 +16,7 @@ a{text-decoration:none;color:inherit}
 ::selection{background:#d6bb7b;color:#081b3b}
 :focus-visible{outline:3px solid #cba452;outline-offset:5px}
 .top{background:#09182e;color:#e8edf6;padding:10px 5%;font-size:12px;display:flex;justify-content:space-between}
-.header{height:105px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:20;border-bottom:1px solid #edf0f3;backdrop-filter:blur(15px);background:#ffffffed}
+.header{height:105px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:20;border-bottom:1px solid #edf0f3;backdrop-filter:blur(15px);background:#ffffffed;gap:16px}
 .logo{display:flex;align-items:center;gap:12px}
 .logo img{height:88px;width:95px;object-fit:contain}
 .logo b{font-size:15px;color:var(--navy)}
@@ -24,6 +24,7 @@ a{text-decoration:none;color:inherit}
 nav{display:flex;gap:24px;align-items:center;font-size:13px;font-weight:800}
 nav a:hover,nav a.active{color:#ad8636}
 .menu{display:none}
+.language-toggle{border:1px solid #d2d8e3;background:#fff;color:#071d46;border-radius:8px;padding:9px 13px;font-size:12px;font-weight:700;flex-shrink:0}
 .btn{border:0;border-radius:9px;background:var(--gold);color:#071d46;padding:13px 24px;font-weight:800;display:inline-flex;gap:8px;align-items:center;justify-content:center;transition:transform .25s,box-shadow .25s}
 .btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px #071d4625}
 .btn.dark{background:#0b254b;color:white}
@@ -164,15 +165,28 @@ nav a:hover,nav a.active{color:#ad8636}
 .footer a{display:block;margin:9px 0;color:#d6dfed;font-size:13px}
 .footer p{font-size:13px;line-height:2}
 .footerbottom{border-top:1px solid #ffffff20;margin-top:30px;padding-top:16px;font-size:12px;text-align:center}
+.rafaa-social-footer{display:flex;justify-content:center;align-items:center;gap:18px;padding:24px 0 10px;color:#fff}
+.footer .rafaa-social-footer a{display:inline-flex;justify-content:center;align-items:center;width:40px;height:40px;margin:0;color:#fff;border:1px solid #ffffff35;border-radius:50%;transition:color .2s,background .2s}
+.footer .rafaa-social-footer a:hover{color:#e9c780;background:#ffffff12}
+.rafaa-social-footer svg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
+.rafaa-social-footer a:focus-visible{outline:2px solid #cba452;outline-offset:4px}
 .quick-contact{position:fixed;bottom:25px;left:24px;z-index:30;display:grid;gap:10px}
 .quick-contact a{width:48px;height:48px;border-radius:50%;background:#0b254b;color:white;display:grid;place-items:center;font-size:20px;box-shadow:0 7px 22px #09182e30}
-.quick-contact .wa{background:#9e7d38;font-size:13px;font-weight:bold}
+.quick-contact .wa{background:#9e7d38;font-size:10px;font-weight:bold}
 .back-to-top{position:fixed;right:22px;bottom:22px;width:42px;height:42px;border:1px solid #dcc9a0;background:#fff;color:#0b2449;border-radius:50%;cursor:pointer;z-index:20}
 .page-progress{position:fixed;top:0;right:0;z-index:100;height:3px;background:#cba452;width:0;transition:width .35s}
 main{min-height:55vh}
 .reveal{animation:rise .7s ease both}
 .observed{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
 .observed.visible{opacity:1;transform:none}
+#phone,#email{direction:ltr;text-align:start}
+html[dir=ltr] .drop-panel{right:auto;left:0}
+html[dir=ltr] .mega{left:-230px}
+html[dir=ltr] .hero h1{letter-spacing:-1px;font-size:clamp(34px,4.1vw,60px)}
+html[dir=ltr] .package li:before{margin-left:0;margin-right:10px}
+html[dir=ltr] .card-media span{right:auto;left:16px}
+html[dir=ltr] #nav{gap:16px;font-size:12px}
+html[dir=ltr] #nav>.btn{padding:13px 18px}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 ::view-transition-old(root){animation:fade-out .18s ease both}
 ::view-transition-new(root){animation:rise .4s ease both}
@@ -182,6 +196,9 @@ nav{gap:16px;font-size:12px}
 .logo b,.logo small{display:none}
 .hero{gap:35px}
 .intro-services .card{padding:23px}
+.header{gap:10px}
+#nav{gap:15px;font-size:12px}
+.language-toggle{padding:8px 10px}
 }
 @media(max-width:850px){
 .header{height:83px}
@@ -195,6 +212,7 @@ nav{display:none;position:absolute;top:83px;left:0;right:0;background:#fff;paddi
 nav.open{display:flex}
 nav>a{padding:10px}
 .menu{display:block;background:transparent;border:0;font-size:26px}
+.language-toggle{margin-inline-start:auto}
 .dropdown summary{padding:10px}
 .drop-panel,.mega{position:static;width:100%;display:block;box-shadow:none;margin-top:8px}
 .mega>div{margin-bottom:16px}
@@ -227,6 +245,10 @@ nav>a{padding:10px}
 .package-top,.package-bottom{padding:25px}
 .values{gap:15px}
 .contact-panel{padding:25px}
+.rafaa-social-footer{display:flex;position:static;flex-direction:row;background:transparent;box-shadow:none;overflow:visible}
+html[dir=ltr] .mega{left:auto}
+html[dir=ltr] .hero h1{font-size:38px}
+html[dir=ltr] .logo b{font-size:12px}
 }
 @media(max-width:520px){
 .grid{grid-template-columns:1fr}
@@ -267,8 +289,10 @@ html{scroll-behavior:auto}
       <small>RAFAA BUSINESS</small>
     </div>
   </a>
+  <button id="language-toggle" class="language-toggle" type="button"
+    onclick="setSiteLanguage(siteLanguage==='ar'?'en':'ar')">English</button>
   <button aria-label="فتح القائمة" class="menu"
-    onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+    onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
   <nav id="nav" aria-label="التنقل الرئيسي">
     <a href="#/">الرئيسية</a>
     <details class="dropdown">
@@ -313,7 +337,7 @@ html{scroll-behavior:auto}
 <div class="quick-contact">
   <a href="tel:+966568310206" aria-label="اتصل برفاء">☎</a>
   <a class="wa" href="https://wa.me/966568310206"
-     target="_blank" rel="noopener" aria-label="واتساب رفاء">واتساب</a>
+    target="_blank" rel="noopener" aria-label="واتساب رفاء">واتساب</a>
 </div>
 <button class="back-to-top" aria-label="العودة إلى أعلى الصفحة"
   onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
@@ -337,7 +361,37 @@ html{scroll-behavior:auto}
       <a href="#/contact">نموذج التواصل</a>
     </div>
   </div>
-  <div class="footerbottom">© 2026 مجموعة رفاء للأعمال — جميع الحقوق محفوظة</div>
+  <div role="group" class="rafaa-social-footer" aria-label="حسابات رفاء">
+    <a href="https://www.instagram.com/rafaa.bgroup/" target="_blank"
+      rel="noopener noreferrer" aria-label="إنستغرام رفاء">
+      <svg viewBox="0 0 24 24" aria-hidden="true"
+        style="fill:none;stroke:currentColor;stroke-width:1.8">
+        <rect x="3" y="3" width="18" height="18" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1"
+          style="fill:currentColor;stroke:none"/>
+      </svg>
+    </a>
+    <a href="https://x.com/RAFAABGroup" target="_blank"
+      rel="noopener noreferrer" aria-label="رفاء على X">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l7.3-8.5L1 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L6.6 3.9H4.8L17.8 20Z"/>
+      </svg>
+    </a>
+    <a href="https://www.tiktok.com/@rafaabgroup" target="_blank"
+      rel="noopener noreferrer" aria-label="تيك توك رفاء">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M16.6 2c.4 2.4 1.8 3.9 4.4 4.1v3.3c-1.6.1-3.2-.4-4.4-1.3v7.4a6.5 6.5 0 1 1-5.6-6.4v3.4a3.2 3.2 0 1 0 2.3 3V2h3.3Z"/>
+      </svg>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61594647311129"
+      target="_blank" rel="noopener noreferrer" aria-label="فيسبوك رفاء">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M13.5 22v-9h3l.5-3.5h-3.5V7.3c0-1 .3-1.8 1.8-1.8H17V2.3c-.8-.1-1.6-.2-2.5-.2C12 2.1 10 3.7 10 6.7v2.8H7V13h3v9h3.5Z"/>
+      </svg>
+    </a>
+  </div>
+  <div class="footerbottom">©️ 2026 مجموعة رفاء للأعمال — جميع الحقوق محفوظة</div>
 </footer>
 <script>
 const services = [
@@ -357,14 +411,12 @@ const hero = (title,sub) => `
   <div class="pagehero">
     <div class="breadcrumb"><a href="#/">الرئيسية</a> / ${title}</div>
     <span class="eyebrow">RAFAA BUSINESS</span>
-    <h1>${title}</h1>
-    <p>${sub}</p>
+    <h1>${title}</h1><p>${sub}</p>
   </div>`;
 const heading = (small,title,desc) => `
   <div class="head">
     <span class="eyebrow">${small}</span>
-    <h2>${title}</h2>
-    <p>${desc}</p>
+    <h2>${title}</h2><p>${desc}</p>
   </div>`;
 const card = (s,i) => `
   <article class="card service-card">
@@ -373,8 +425,7 @@ const card = (s,i) => `
       <span>${s[3]}</span>
     </a>
     <div class="card-body">
-      <h3>${s[0]}</h3>
-      <p>${s[1]}</p>
+      <h3>${s[0]}</h3><p>${s[1]}</p>
       <div class="card-meta">
         <span>عرض سعر مخصص</span>
         <a class="link" href="#/service/${i}">عرض التفاصيل ←</a>
@@ -382,14 +433,11 @@ const card = (s,i) => `
     </div>
   </article>`;
 function cta(){
-  return `
-    <div class="banner">
-      <div>
-        <h2>جاهز تبدأ خطوتك القادمة؟</h2>
-        <p>خلّنا نتعرف على احتياجك ونساعدك في تحديد الخدمة المناسبة.</p>
-      </div>
-      <a class="btn" href="#/request">ابدأ طلبك الآن ←</a>
-    </div>`;
+  return `<div class="banner">
+    <div><h2>جاهز تبدأ خطوتك القادمة؟</h2>
+    <p>خلّنا نتعرف على احتياجك ونساعدك في تحديد الخدمة المناسبة.</p></div>
+    <a class="btn" href="#/request">ابدأ طلبك الآن ←</a>
+  </div>`;
 }
 function lineIcon(i){
   const paths = i === 0
@@ -425,11 +473,9 @@ function home(){
       <div class="hero-visual reveal">
         <img class="hero-photo" src="assets/hero.jpg" alt="مساحة أعمال حديثة بإطلالة واسعة">
         <div class="visual-note">
-          <span class="seal">↗</span>
-          <div>
-            <b>آفاق أوسع لأعمالك</b>
-            <small>وضوح في الخطوات. اهتمام بالتفاصيل.</small>
-          </div>
+          <span class="seal">↗️</span>
+          <div><b>آفاق أوسع لأعمالك</b>
+          <small>وضوح في الخطوات. اهتمام بالتفاصيل.</small></div>
         </div>
       </div>
     </section>
@@ -438,8 +484,7 @@ function home(){
         ${[0,2,3,4].map(i => `
           <article class="card">
             <div class="icon">${lineIcon(i)}</div>
-            <h3>${services[i][0]}</h3>
-            <p>${services[i][1]}</p>
+            <h3>${services[i][0]}</h3><p>${services[i][1]}</p>
             <a class="link" href="#/service/${i}">اطلب الخدمة ←</a>
           </article>`).join('')}
       </div>
@@ -482,10 +527,7 @@ function home(){
           ['02','مراجعة الطلب','نراجع التفاصيل والمتطلبات.'],
           ['03','الاتفاق والتنفيذ','نوضح نطاق العمل ونتابع إجراءاته.'],
           ['04','تسليم المخرجات','نشاركك النتائج والخطوات التالية.']
-        ].map(x => `
-          <div class="step">
-            <b>${x[0]}</b><h3>${x[1]}</h3><p>${x[2]}</p>
-          </div>`).join('')}
+        ].map(x => `<div class="step"><b>${x[0]}</b><h3>${x[1]}</h3><p>${x[2]}</p></div>`).join('')}
       </div>
     </section>
     <section class="section alt">
@@ -518,20 +560,21 @@ function serviceList(){
 }
 function filterServices(c,el){
   if(c){
-    cat = c;
-    document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+    cat=c;
+    document.querySelectorAll('#chips .chip').forEach(x => x.classList.remove('active'));
     el.classList.add('active');
   }
-  const q = document.getElementById('q').value.trim();
-  document.getElementById('results').innerHTML = services
-    .map((s,i) => ({s,i}))
-    .filter(o => (cat==='الكل'||o.s[3]===cat) && o.s.join(' ').includes(q))
-    .map(o => card(o.s,o.i)).join('')
-    || '<p>لا توجد خدمات مطابقة للبحث.</p>';
+  const q=document.getElementById('q').value.trim().toLocaleLowerCase();
+  document.getElementById('results').innerHTML=services
+    .map((s,i)=>({s,i}))
+    .filter(o=>(cat==='الكل'||o.s[3]===cat)&&
+      (o.s.join(' ')+' '+toEnglish(o.s.join(' '))).toLocaleLowerCase().includes(q))
+    .map(o=>card(o.s,o.i)).join('')||'<p>لا توجد خدمات مطابقة للبحث.</p>';
+  translateSite(document.getElementById('results'));
 }
 function detail(i){
-  const s = services[i];
-  if(!s) return serviceList();
+  const s=services[i];
+  if(!s)return serviceList();
   return `
     ${hero(s[0],s[1])}
     <section class="section alt">
@@ -619,7 +662,7 @@ function vision(){
     ${cta()}`;
 }
 function packages(){
-  const packs = [
+  const packs=[
     ['START','باقة الانطلاق','لمن يبدأ مشروعه ويحتاج إلى ترتيب متطلبات التأسيس.',
       ['مراجعة احتياج المشروع','تحديد متطلبات الانطلاق','تنظيم الخطوات والمستندات','عرض سعر حسب نطاق العمل']],
     ['GROW','باقة النمو','للمنشآت التي ترغب في تنظيم إجراءاتها ومتابعة احتياجاتها.',
@@ -632,28 +675,24 @@ function packages(){
     <section class="section alt">
       ${heading('حلول مرنة','لكل مرحلة، بداية مناسبة.','مسارات مقترحة؛ تُعتمد الخدمات والأتعاب بعد مراجعة احتياجك.')}
       <div class="packages-grid">
-        ${packs.map((p,i) => `
+        ${packs.map((p,i)=>`
           <article class="package ${i===1?'featured':''}">
             <div class="package-top">
               <small>RAFAA / ${p[0]}</small>
               <h2>${p[1]}</h2><p>${p[2]}</p>
             </div>
             <div class="package-bottom">
-              <ul>${p[3].map(x => `<li>${x}</li>`).join('')}</ul>
-              <a class="btn ${i===1?'':'dark'}" href="#/request?package=${i}">
-                اطلب عرضًا لهذه الباقة ←
-              </a>
+              <ul>${p[3].map(x=>`<li>${x}</li>`).join('')}</ul>
+              <a class="btn ${i===1?'':'dark'}" href="#/request?package=${i}">اطلب عرضًا لهذه الباقة ←</a>
             </div>
           </article>`).join('')}
       </div>
-      <p class="note" style="text-align:center;margin-top:25px">
-        الرسوم الحكومية إن وجدت تُوضح بشكل مستقل في عرض السعر.
-      </p>
+      <p class="note" style="text-align:center;margin-top:25px">الرسوم الحكومية إن وجدت تُوضح بشكل مستقل في عرض السعر.</p>
     </section>
     ${cta()}`;
 }
 function faq(){
-  const questions = [
+  const questions=[
     ['كيف أطلب خدمة من رفاء؟','اختر الخدمة المناسبة من قائمة الخدمات ثم عبّئ نموذج الطلب.'],
     ['هل يمكن الاستفسار قبل تقديم الطلب؟','نعم، يمكنك التواصل معنا لشرح احتياجك قبل اختيار الخدمة.'],
     ['كم تستغرق إجراءات الخدمة؟','تختلف المدة حسب الخدمة والجهة المختصة واكتمال المتطلبات.'],
@@ -664,15 +703,15 @@ function faq(){
     ${hero('الأسئلة الشائعة','إجابات مختصرة على أكثر الاستفسارات شيوعًا.')}
     <section class="section alt">
       <div class="faq">
-        ${questions.map(x => `<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('')}
+        ${questions.map(x=>`<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('')}
       </div>
     </section>`;
 }
 function requestForm(){
-  const params = new URLSearchParams(location.hash.split('?')[1]||'');
-  const id = params.get('service');
-  const pack = params.get('package');
-  const names = ['باقة الانطلاق','باقة النمو','باقة الأعمال المتكاملة'];
+  const params=new URLSearchParams(location.hash.split('?')[1]||'');
+  const id=params.get('service');
+  const pack=params.get('package');
+  const names=['باقة الانطلاق','باقة النمو','باقة الأعمال المتكاملة'];
   return `
     <form class="form" id="request-form" onsubmit="prepareRequest(event)">
       <span class="overline">LET'S START</span>
@@ -696,17 +735,15 @@ function requestForm(){
         </div>
         <div>
           <label for="company">اسم المنشأة</label>
-          <input id="company" name="company"
-            autocomplete="organization" placeholder="اسم منشأتك إن وجد">
+          <input id="company" name="company" autocomplete="organization"
+            placeholder="اسم منشأتك إن وجد">
         </div>
       </div>
       <label for="service">الخدمة أو الباقة *</label>
       <select id="service" name="service" required>
         <option value="">اختر الخدمة</option>
-        ${services.map((v,i) => `
-          <option ${id!==null&&Number(id)===i?'selected':''}>${v[0]}</option>`).join('')}
-        ${names.map((n,i) => `
-          <option ${pack!==null&&Number(pack)===i?'selected':''}>${n}</option>`).join('')}
+        ${services.map((v,i)=>`<option ${id!==null&&Number(id)===i?'selected':''}>${v[0]}</option>`).join('')}
+        ${names.map((n,i)=>`<option ${pack!==null&&Number(pack)===i?'selected':''}>${n}</option>`).join('')}
         <option>استفسار عام</option>
       </select>
       <label for="notes">تفاصيل احتياجك *</label>
@@ -716,10 +753,8 @@ function requestForm(){
         <input id="confirm" type="checkbox" required>
         أرغب في التواصل مع رفاء بشأن هذا الطلب.
       </label>
-      <p class="form-note">
-        يفتح الزر رسالة جاهزة في واتساب. راجعها واضغط إرسال هناك لإيصال طلبك إلى الفريق.
-      </p>
-      <button class="btn dark" type="submit">تجهيز الطلب في واتساب ↗</button>
+      <p class="form-note">يفتح الزر رسالة جاهزة في واتساب. راجعها واضغط إرسال هناك لإيصال طلبك إلى الفريق.</p>
+      <button class="btn dark" type="submit">تجهيز الطلب في واتساب ↗️</button>
       <p id="submit-status" class="submit-status" role="status"></p>
       <p class="note">
         يمكنك أيضًا التواصل عبر
@@ -737,16 +772,13 @@ function request(){
           <span class="eyebrow" style="color:#d9bd80">نرافقك في الخطوة التالية</span>
           <h2>طلب واضح،<br>وبداية مرتبة.</h2>
           <p>عبّئ تفاصيل احتياجك، ثم افتح الرسالة في واتساب لتراجعها وترسلها إلى رفاء.</p>
-          <div class="contact-item">
-            <small>البريد الإلكتروني</small>
+          <div class="contact-item"><small>البريد الإلكتروني</small>
             <a dir="ltr" href="mailto:Info@rafaabg.com">Info@rafaabg.com</a>
           </div>
-          <div class="contact-item">
-            <small>اتصل بنا</small>
+          <div class="contact-item"><small>اتصل بنا</small>
             <a dir="ltr" href="tel:+966568310206">+966 56 831 0206</a>
           </div>
-          <div class="contact-item">
-            <small>خطوات الطلب</small>
+          <div class="contact-item"><small>خطوات الطلب</small>
             <p>توضيح الاحتياج ← مراجعة المتطلبات ← عرض السعر ← الاتفاق على التنفيذ</p>
           </div>
         </aside>
@@ -763,17 +795,14 @@ function contact(){
           <span class="eyebrow" style="color:#d9bd80">مجموعة رفاء للأعمال</span>
           <h2>نحن هنا<br>لبداية أوضح.</h2>
           <p>تواصل مباشرة مع فريقنا، أو جهّز رسالة بطلبك عبر النموذج.</p>
-          <div class="contact-item">
-            <small>واتساب الأعمال</small>
+          <div class="contact-item"><small>واتساب الأعمال</small>
             <a class="btn" href="https://wa.me/966568310206"
-              target="_blank" rel="noopener">ابدأ المحادثة ↗</a>
+              target="_blank" rel="noopener">ابدأ المحادثة ↗️</a>
           </div>
-          <div class="contact-item">
-            <small>الجوال</small>
+          <div class="contact-item"><small>الجوال</small>
             <a dir="ltr" href="tel:+966568310206">+966 56 831 0206</a>
           </div>
-          <div class="contact-item">
-            <small>البريد الإلكتروني</small>
+          <div class="contact-item"><small>البريد الإلكتروني</small>
             <a dir="ltr" href="mailto:Info@rafaabg.com">Info@rafaabg.com</a>
           </div>
         </aside>
@@ -782,6 +811,17 @@ function contact(){
     </section>`;
 }
 function buildRequestMessage(data){
+  if(siteLanguage==='en'){
+    return [
+      'Hello, I would like to request a service from Rafaa Business Group.',
+      'Name: '+data.name,
+      'Mobile: '+data.phone,
+      data.email?'Email: '+data.email:'',
+      data.company?'Business: '+data.company:'',
+      'Service: '+toEnglish(data.service),
+      'Request details: '+data.notes
+    ].filter(Boolean).join('\n');
+  }
   return [
     'السلام عليكم، أرغب في طلب خدمة من مجموعة رفاء للأعمال.',
     'الاسم: '+data.name,
@@ -794,87 +834,374 @@ function buildRequestMessage(data){
 }
 function prepareRequest(event){
   event.preventDefault();
-  const form = event.target;
-  if(!form.reportValidity()) return;
-  const data = Object.fromEntries(new FormData(form).entries());
-  const url = 'https://wa.me/966568310206?text='+
-    encodeURIComponent(buildRequestMessage(data));
-  const status = document.getElementById('submit-status');
-  status.textContent = 'تم تجهيز الرسالة. راجعها في واتساب واضغط إرسال لإكمال الطلب.';
-  const link = document.createElement('a');
-  link.href = url;
-  link.target = '_blank';
-  link.rel = 'noopener';
-  link.textContent = 'فتح رسالة الطلب في واتساب ↗';
-  link.className = 'link';
+  const form=event.target;
+  if(!form.reportValidity())return;
+  const data=Object.fromEntries(new FormData(form).entries());
+  const url='https://wa.me/966568310206?text='+encodeURIComponent(buildRequestMessage(data));
+  const status=document.getElementById('submit-status');
+  status.textContent='تم تجهيز الرسالة. راجعها في واتساب واضغط إرسال لإكمال الطلب.';
+  const link=document.createElement('a');
+  link.href=url;
+  link.target='_blank';
+  link.rel='noopener';
+  link.textContent='فتح رسالة الطلب في واتساب ↗️';
+  link.className='link';
   status.appendChild(document.createElement('br'));
   status.appendChild(link);
+  translateSite(status);
   window.open(url,'_blank','noopener');
 }
 let observer;
 function enhance(){
-  document.querySelectorAll('nav details').forEach(d => d.open=false);
-  document.querySelectorAll('.card .icon').forEach((e,i) => {
-    if(e.textContent.match(/[\u{1F300}-\u{1FAFF}]/u)){
-      e.innerHTML = lineIcon(i%4);
-    }
+  document.querySelectorAll('#nav details').forEach(d=>d.open=false);
+  document.querySelectorAll('.card .icon').forEach((e,i)=>{
+    if(e.textContent.match(/[\u{1F300}-\u{1FAFF}]/u))e.innerHTML=lineIcon(i%4);
   });
-  if(observer) observer.disconnect();
-  observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
+  if(observer)observer.disconnect();
+  observer=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
       if(e.isIntersecting){
         e.target.classList.add('visible');
         observer.unobserve(e.target);
       }
     });
   },{threshold:.08});
-  document.querySelectorAll('.section .card,.section .step,.split').forEach(e => {
+  document.querySelectorAll('.section .card,.section .step,.split').forEach(e=>{
     e.classList.add('observed');
     observer.observe(e);
   });
   if(location.hash.startsWith('#/services')){
     cat='الكل';
-    const c = new URLSearchParams(location.hash.split('?')[1]||'').get('category');
+    const c=new URLSearchParams(location.hash.split('?')[1]||'').get('category');
     if(c){
-      const el = Array.from(document.querySelectorAll('.chip'))
-        .find(e => e.textContent===c);
-      if(el) filterServices(c,el);
+      const el=Array.from(document.querySelectorAll('#chips .chip')).find(e=>e.textContent===c);
+      if(el)filterServices(c,el);
     }
   }
 }
+const siteTranslations={
+"مجموعة رفاء للأعمال":"Rafaa Business Group",
+"رفاء للأعمال":"Rafaa Business",
+"شريكك في رحلة النمو":"Your partner in growth",
+"حلول تنمو مع طموحك":"Solutions that grow with your ambition",
+"الرئيسية":"Home",
+"نبذة عنا":"About us",
+"من نحن":"Who we are",
+"رؤيتنا ورسالتنا":"Our vision and mission",
+"الأسئلة الشائعة":"Frequently asked questions",
+"خدمات أعمال":"Business services",
+"التأسيس والانطلاق":"Formation and launch",
+"تأسيس الشركات":"Company formation",
+"السجلات التجارية":"Commercial registrations",
+"تعديل عقود التأسيس":"Articles of association amendments",
+"التشغيل والنمو":"Operations and growth",
+"خدمات المستثمرين":"Investor services",
+"الموارد البشرية":"Human resources",
+"المنصات الحكومية":"Government platforms",
+"التراخيص والعلامات":"Licensing and trademarks",
+"التراخيص والتصاريح":"Licenses and permits",
+"العلامات التجارية":"Trademarks",
+"خدمات المنشآت":"Business support services",
+"عرض جميع الخدمات":"View all services",
+"باقات الأعمال":"Business packages",
+"اتصل بنا":"Contact us",
+"اطلب خدمة":"Request a service",
+"فتح القائمة":"Open menu",
+"التنقل الرئيسي":"Main navigation",
+"محتوى الصفحة":"Page content",
+"اتصل برفاء":"Call Rafaa",
+"واتساب رفاء":"Rafaa on WhatsApp",
+"واتساب":"WhatsApp",
+"العودة إلى أعلى الصفحة":"Back to top",
+"شعار رفاء الأصلي":"Official Rafaa logo",
+"حلول أعمال مصممة لتسهيل رحلتك من الفكرة إلى الانطلاق، ومساندة منشأتك في مراحل نموها.":"Business solutions designed to support your journey from idea to launch and help your business grow.",
+"روابط سريعة":"Quick links",
+"تواصل معنا":"Contact us",
+"الخدمات":"Services",
+"الباقات":"Packages",
+"نموذج التواصل":"Contact form",
+"جميع الحقوق محفوظة":"All rights reserved",
+"مساندة تأسيس المنشآت وإعداد متطلبات الانطلاق والإجراءات ذات الصلة.":"Support with business formation, launch requirements, and related procedures.",
+"متابعة طلبات إصدار وتعديل وتحديث بيانات السجلات التجارية.":"Follow-up on applications to issue, amend, and update commercial registrations.",
+"مساندة المستثمرين في فهم المتطلبات والإجراءات والطلبات ذات العلاقة.":"Help for investors to understand requirements, procedures, and related applications.",
+"تنسيق ومتابعة متطلبات التراخيص والتصاريح للأنشطة المختلفة.":"Coordination and follow-up on licensing and permit requirements for different business activities.",
+"دعم المنشآت في إجراءات الموارد البشرية والمنصات ذات العلاقة.":"Support with human resources procedures and related platforms.",
+"متابعة الإجراءات الإدارية للمنشآت عبر المنصات الحكومية.":"Follow-up on administrative business procedures through government platforms.",
+"مساندة تجهيز متطلبات تعديلات عقد التأسيس وبيانات الشركاء.":"Support with requirements for amending articles of association and partner information.",
+"المساعدة في تجهيز ومتابعة طلبات العلامات التجارية وفق المتطلبات.":"Help with preparing and following up on trademark applications in line with requirements.",
+"تنسيق احتياجات المنشأة الإدارية ومتابعة معاملاتها.":"Coordination of administrative business needs and follow-up on transactions.",
+"خدمات الموارد البشرية":"Human resources services",
+"خدمات المنصات الحكومية":"Government platform services",
+"التأسيس":"Formation",
+"الاستثمار":"Investment",
+"التراخيص":"Licensing",
+"التشغيل":"Operations",
+"عرض سعر مخصص":"Tailored quote",
+"عرض التفاصيل":"View details",
+"جاهز تبدأ خطوتك القادمة؟":"Ready to take your next step?",
+"خلّنا نتعرف على احتياجك ونساعدك في تحديد الخدمة المناسبة.":"Tell us what you need and we will help you find the right service.",
+"ابدأ طلبك الآن":"Start your request",
+"كيف أبدأ طلب الخدمة؟":"How do I request a service?",
+"اختر الخدمة، اطّلع على تفاصيلها، ثم عبّئ بيانات الطلب.":"Choose a service, read its details, and complete the request form.",
+"كيف تُحدد أتعاب الخدمة؟":"How are service fees determined?",
+"يُقدم عرض سعر بعد مراجعة احتياجك وتحديد نطاق العمل، مع توضيح الرسوم الحكومية إن وجدت.":"A quote is provided after reviewing your needs and defining the scope of work, with any government fees explained separately.",
+"كم تستغرق الخدمة؟":"How long does a service take?",
+"تختلف المدة بحسب نوع الطلب واكتمال مستنداته وإجراءات الجهة المختصة.":"Timing depends on the request, document completeness, and the relevant authority's procedures.",
+"حلول أعمال متكاملة في السعودية":"Integrated business solutions in Saudi Arabia",
+"نؤسس لطموحك.":"We lay the foundations for your ambition.",
+"ونرافق نمو أعمالك.":"And support your business as it grows.",
+"مع مجموعة رفاء للأعمال، تصبح خطواتك أكثر وضوحًا. من التأسيس إلى التشغيل والتوسع، نساعدك على تحويل طموحك إلى عمل يمضي بثقة.":"With Rafaa Business Group, your next steps become clearer. From formation to operations and expansion, we help you turn ambition into a business that moves forward with confidence.",
+"ابدأ رحلتك معنا":"Start your journey with us",
+"تواصل مع فريقنا":"Talk to our team",
+"مساحة أعمال حديثة بإطلالة واسعة":"A modern workspace with an open view",
+"آفاق أوسع لأعمالك":"Broader horizons for your business",
+"وضوح في الخطوات. اهتمام بالتفاصيل.":"Clear steps. Attention to detail.",
+"اطلب الخدمة":"Request this service",
+"كل خطوة مدروسة،":"Every considered step",
+"تفتح لك أفقًا جديدًا.":"opens a new horizon.",
+"نجمع بين فهم احتياجك وتنظيم الإجراءات ومتابعة التفاصيل، لتتمكن من التركيز على ما تصنعه أعمالك من قيمة.":"We combine an understanding of your needs with organized procedures and attention to detail, so you can focus on the value your business creates.",
+"تعرّف على رفاء":"Discover Rafaa",
+"عمارة أعمال حديثة":"Modern commercial architecture",
+"بداية مدروسة":"A considered beginning",
+"فهم الاحتياج قبل التنفيذ":"Understanding your needs before execution",
+"خطوات واضحة":"Clear steps",
+"نطاق عمل محدد":"A defined scope of work",
+"متابعة مستمرة":"Ongoing follow-up",
+"تواصل في مراحل الطلب":"Communication throughout your request",
+"حلول مناسبة":"Suitable solutions",
+"خدمات تراعي طبيعة منشأتك":"Services tailored to your business",
+"خدمات تفصيلية":"Services in detail",
+"ماذا نقدم لأعمالك؟":"What can we do for your business?",
+"تصفح الخدمات، اطّلع على التفاصيل، وابدأ من حيث يحتاج مشروعك.":"Explore our services, read the details, and start with what your business needs.",
+"الآلية":"How it works",
+"رحلتك مع رفاء":"Your journey with Rafaa",
+"من أول تواصل، وحتى اكتمال نطاق العمل.":"From your first conversation to completion of the agreed scope.",
+"اختر خدمتك":"Choose your service",
+"تصفح الخدمات وحدد احتياجك.":"Browse our services and identify what you need.",
+"مراجعة الطلب":"Request review",
+"نراجع التفاصيل والمتطلبات.":"We review the details and requirements.",
+"الاتفاق والتنفيذ":"Agreement and execution",
+"نوضح نطاق العمل ونتابع إجراءاته.":"We clarify the scope of work and follow up on its procedures.",
+"تسليم المخرجات":"Delivering the results",
+"نشاركك النتائج والخطوات التالية.":"We share the results and next steps with you.",
+"عندك استفسار؟":"Have a question?",
+"نساعدك تحدد البداية.":"We help you find your starting point.",
+"تعرّف على طريقة طلب الخدمة، وكيف تُحدد المتطلبات والرسوم.":"Learn how to request a service and how requirements and fees are determined.",
+"جميع الأسئلة الشائعة":"All frequently asked questions",
+"خدمات رفاء للأعمال":"Rafaa Business services",
+"تصفح خدماتنا واختر ما يناسب احتياجات منشأتك.":"Explore our services and choose what suits your business.",
+"ابحث عن خدمة":"Search for a service",
+"ابحث عن خدمة أو كلمة مفتاحية...":"Search for a service or keyword...",
+"الكل":"All",
+"لا توجد خدمات مطابقة للبحث.":"No services match your search.",
+"العودة إلى دليل الخدمات":"Back to the service directory",
+"نبذة عن الخدمة":"About this service",
+"نبدأ بفهم حالة المنشأة وتحديد متطلباتها، ثم نوضح نطاق العمل قبل التنفيذ.":"We start by understanding your business and its requirements, then clarify the scope of work before execution.",
+"ماذا تشمل رحلة الخدمة؟":"What does the service process include?",
+"مراجعة تفاصيل الطلب والبيانات الأساسية.":"Reviewing the request details and essential information.",
+"تحديد المستندات والخطوات اللازمة.":"Identifying the required documents and steps.",
+"الاتفاق على نطاق العمل وعرض السعر.":"Agreeing on the scope of work and quote.",
+"متابعة الإجراءات ومشاركة تحديثاتها.":"Following up on procedures and sharing updates.",
+"المتطلبات المبدئية":"Initial requirements",
+"بيانات المنشأة أو صاحب الطلب، ووصف الاحتياج، والمستندات المتاحة ذات العلاقة. يوضح فريق رفاء القائمة المناسبة بعد مراجعة حالتك.":"Business or applicant information, a description of your needs, and any relevant documents available. The Rafaa team will confirm the appropriate list after reviewing your situation.",
+"ابدأ من هنا":"Start here",
+"الأتعاب":"Fees",
+"عرض سعر حسب نطاق العمل":"Quote based on the scope of work",
+"المدة":"Timeframe",
+"تُحدد بعد مراجعة الطلب":"Confirmed after reviewing the request",
+"نرتب معك الخطوة التالية ونوضح التفاصيل قبل البدء.":"We help you arrange your next step and explain the details before you begin.",
+"اطلب هذه الخدمة":"Request this service",
+"استفسر عن الخدمة":"Ask about this service",
+"رفاء للأعمال — اهتمام بالتفاصيل، ووضوح في الرحلة.":"Rafaa Business — attention to detail and clarity throughout your journey.",
+"نساعدك تبني أعمالك،":"We help you build your business,",
+"وتتفرغ لطموحك.":"so you can focus on your ambition.",
+"تبدأ رحلتنا معك من فهم احتياج منشأتك، ثم تحديد الإجراءات والمتطلبات المناسبة، ومتابعة التفاصيل ضمن نطاق عمل واضح ومتفق عليه.":"Our journey with you begins by understanding your business needs, identifying the right procedures and requirements, and following up on the details within a clear, agreed scope of work.",
+"نسعى إلى تقديم تجربة منظمة لأصحاب الأعمال والمستثمرين؛ تتسم بالتواصل الواضح والعناية بكل خطوة.":"We aim to provide an organized experience for business owners and investors, with clear communication and care at every step.",
+"استكشف خدماتنا":"Explore our services",
+"مساحة أعمال مرتبة":"An organized workspace",
+"ما يوجّه عملنا":"What guides our work",
+"قيم نعتمد عليها في كل خطوة":"Values that guide every step",
+"الوضوح والمتابعة وفهم الاحتياج أساس تجربتك معنا.":"Clarity, follow-up, and understanding your needs are the foundation of your experience with us.",
+"الوضوح":"Clarity",
+"نحدد نطاق الخدمة والمتطلبات قبل البدء، ونوضح ما يحتاجه الطلب.":"We define the service scope and requirements before starting and explain what your request needs.",
+"الاهتمام":"Care",
+"ننظر إلى تفاصيل المنشأة وطبيعة احتياجها قبل اقتراح المسار.":"We consider your business details and needs before proposing a path forward.",
+"المتابعة":"Follow-up",
+"نتواصل بشأن خطوات العمل ونشارك تحديثات الطلب ومخرجاته.":"We communicate about the work, sharing request updates and results.",
+"آفاق الأعمال والنمو":"Business and growth horizons",
+"رؤية تنطلق من طموحك.":"A vision inspired by your ambition.",
+"أن نكون شريكًا موثوقًا في رحلة تأسيس ونمو الأعمال، بتجربة خدمات واضحة وميسّرة ومهنية.":"To be a trusted partner in business formation and growth through clear, accessible, professional services.",
+"طموح واضح، وعناية بالتفاصيل.":"Clear ambition and attention to detail.",
+"شراكة تدعم مسار أعمالك.":"A partnership that supports your business journey.",
+"رؤيتنا":"Our vision",
+"أن نكون شريكًا موثوقًا في رحلة تأسيس ونمو الأعمال.":"To be a trusted partner in the journey of business formation and growth.",
+"رسالتنا":"Our mission",
+"تقديم تجربة خدمات أعمال واضحة وميسّرة ومهنية.":"To provide clear, accessible, professional business services.",
+"بيئة أعمال حديثة":"A modern business environment",
+"باقة الانطلاق":"Launch package",
+"لمن يبدأ مشروعه ويحتاج إلى ترتيب متطلبات التأسيس.":"For new projects that need help organizing formation requirements.",
+"مراجعة احتياج المشروع":"Review of project needs",
+"تحديد متطلبات الانطلاق":"Identification of launch requirements",
+"تنظيم الخطوات والمستندات":"Organization of steps and documents",
+"باقة النمو":"Growth package",
+"للمنشآت التي ترغب في تنظيم إجراءاتها ومتابعة احتياجاتها.":"For businesses looking to organize their procedures and follow up on their needs.",
+"مراجعة الوضع والاحتياج":"Review of your situation and needs",
+"تحديد الخدمات المناسبة":"Identification of suitable services",
+"تنسيق الإجراءات المطلوبة":"Coordination of required procedures",
+"متابعة ضمن نطاق متفق عليه":"Follow-up within an agreed scope",
+"باقة الأعمال المتكاملة":"Integrated business package",
+"لمجموعة احتياجات إدارية وتشغيلية تُرتب في نطاق واحد.":"For multiple administrative and operational needs organized within one scope.",
+"مراجعة احتياجات المنشأة":"Review of business needs",
+"جمع الخدمات في نطاق مخصص":"Services combined in a tailored scope",
+"تحديد أولويات العمل":"Identification of work priorities",
+"عرض سعر ومخرجات واضحة":"A quote and clearly defined deliverables",
+"اختر مسارًا يناسب المرحلة التي تعيشها منشأتك.":"Choose a path that suits your business's current stage.",
+"حلول مرنة":"Flexible solutions",
+"لكل مرحلة، بداية مناسبة.":"The right beginning for every stage.",
+"مسارات مقترحة؛ تُعتمد الخدمات والأتعاب بعد مراجعة احتياجك.":"Suggested paths; services and fees are confirmed after reviewing your needs.",
+"اطلب عرضًا لهذه الباقة":"Request a quote for this package",
+"الرسوم الحكومية إن وجدت تُوضح بشكل مستقل في عرض السعر.":"Any government fees are listed separately in the quote.",
+"كيف أطلب خدمة من رفاء؟":"How do I request a service from Rafaa?",
+"اختر الخدمة المناسبة من قائمة الخدمات ثم عبّئ نموذج الطلب.":"Choose the appropriate service from our directory and complete the request form.",
+"هل يمكن الاستفسار قبل تقديم الطلب؟":"Can I ask questions before submitting a request?",
+"نعم، يمكنك التواصل معنا لشرح احتياجك قبل اختيار الخدمة.":"Yes. You can contact us to explain your needs before choosing a service.",
+"كم تستغرق إجراءات الخدمة؟":"How long do service procedures take?",
+"تختلف المدة حسب الخدمة والجهة المختصة واكتمال المتطلبات.":"Timing varies with the service, relevant authority, and completeness of the requirements.",
+"هل رسوم الجهات الحكومية ضمن سعر الخدمة؟":"Are government fees included in the service price?",
+"تُوضح الرسوم الحكومية وأتعاب الخدمة في عرض السعر بعد مراجعة الطلب.":"Government fees and service fees are explained in the quote after reviewing your request.",
+"هل أستطيع متابعة طلبي؟":"Can I follow up on my request?",
+"يمكن التنسيق مع فريق العمل للحصول على تحديثات الطلب.":"You can coordinate with the team to receive updates on your request.",
+"إجابات مختصرة على أكثر الاستفسارات شيوعًا.":"Brief answers to the most common questions.",
+"تفاصيل طلبك":"Your request details",
+"الاسم الكامل":"Full name",
+"اكتب اسمك الكامل":"Enter your full name",
+"رقم الجوال":"Mobile number",
+"البريد الإلكتروني":"Email",
+"اسم المنشأة":"Business name",
+"اسم منشأتك إن وجد":"Your business name, if applicable",
+"الخدمة أو الباقة":"Service or package",
+"اختر الخدمة":"Choose a service",
+"استفسار عام":"General inquiry",
+"تفاصيل احتياجك":"Your requirements",
+"اشرح احتياجك وما ترغب في إنجازه...":"Describe your needs and what you would like to achieve...",
+"أرغب في التواصل مع رفاء بشأن هذا الطلب.":"I would like to contact Rafaa about this request.",
+"يفتح الزر رسالة جاهزة في واتساب. راجعها واضغط إرسال هناك لإيصال طلبك إلى الفريق.":"The button opens a prepared message in WhatsApp. Review it and tap Send there to deliver your request to the team.",
+"تجهيز الطلب في واتساب":"Prepare request in WhatsApp",
+"يمكنك أيضًا التواصل عبر":"You can also contact us by",
+"هذا النموذج لا يخزن بياناتك في الموقع.":"This form does not store your information on the website.",
+"اطلب خدمتك":"Request your service",
+"رتّب تفاصيل احتياجك، وابدأ التواصل مع فريق رفاء.":"Outline your needs and start a conversation with the Rafaa team.",
+"نرافقك في الخطوة التالية":"We support your next step",
+"طلب واضح،":"A clear request,",
+"وبداية مرتبة.":"and an organized beginning.",
+"عبّئ تفاصيل احتياجك، ثم افتح الرسالة في واتساب لتراجعها وترسلها إلى رفاء.":"Complete your requirements, then open the message in WhatsApp to review it and send it to Rafaa.",
+"خطوات الطلب":"Request steps",
+"توضيح الاحتياج ← مراجعة المتطلبات ← عرض السعر ← الاتفاق على التنفيذ":"Clarify your needs → Review requirements → Receive a quote → Agree on execution",
+"يسعدنا الاستماع إلى احتياجك ومساعدتك في تحديد الخطوة القادمة.":"We are happy to hear what you need and help you identify your next step.",
+"نحن هنا":"We are here",
+"لبداية أوضح.":"for a clearer beginning.",
+"تواصل مباشرة مع فريقنا، أو جهّز رسالة بطلبك عبر النموذج.":"Contact our team directly or prepare a request message using the form.",
+"واتساب الأعمال":"WhatsApp Business",
+"ابدأ المحادثة":"Start a conversation",
+"الجوال":"Mobile",
+"تم تجهيز الرسالة. راجعها في واتساب واضغط إرسال لإكمال الطلب.":"Your message is ready. Review it in WhatsApp and tap Send to complete your request.",
+"فتح رسالة الطلب في واتساب":"Open your request in WhatsApp",
+"حسابات رفاء":"Rafaa social accounts",
+"إنستغرام رفاء":"Rafaa on Instagram",
+"رفاء على X":"Rafaa on X",
+"تيك توك رفاء":"Rafaa on TikTok",
+"فيسبوك رفاء":"Rafaa on Facebook"
+};
+let siteLanguage='ar';
+try{
+  siteLanguage=localStorage.getItem('rafaa-language')==='en'?'en':'ar';
+}catch{}
+const translationKeys=Object.keys(siteTranslations).sort((a,b)=>b.length-a.length);
+const originalText=new WeakMap();
+const originalAttributes=new WeakMap();
+function toEnglish(text){
+  let value=text.replace(/\s+/g,' ').trim();
+  if(siteTranslations[value])return siteTranslations[value];
+  for(const key of translationKeys){
+    value=value.split(key).join(siteTranslations[key]);
+  }
+  return value.replace(/←/g,'→');
+}
+function translateSite(root=document.body){
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  let node;
+  while(node=walker.nextNode()){
+    if(node.parentElement.closest('script,style,textarea,#language-toggle,[data-user-content]'))continue;
+    if(!originalText.has(node))originalText.set(node,node.nodeValue);
+    const ar=originalText.get(node);
+    node.nodeValue=siteLanguage==='en'?toEnglish(ar):ar;
+  }
+  root.querySelectorAll('[placeholder],[aria-label],img[alt]').forEach(el=>{
+    if(el.id==='language-toggle')return;
+    if(!originalAttributes.has(el)){
+      const values={};
+      for(const attr of ['placeholder','aria-label','alt']){
+        if(el.hasAttribute(attr))values[attr]=el.getAttribute(attr);
+      }
+      originalAttributes.set(el,values);
+    }
+    for(const [attr,ar] of Object.entries(originalAttributes.get(el))){
+      el.setAttribute(attr,siteLanguage==='en'?toEnglish(ar):ar);
+    }
+  });
+  const title=app.querySelector('h1')?.textContent||
+    (siteLanguage==='en'?'Home':'الرئيسية');
+  document.title=title+' | '+(siteLanguage==='en'?'Rafaa Business':'رفاء للأعمال');
+}
+function setSiteLanguage(lang){
+  siteLanguage=lang==='en'?'en':'ar';
+  document.documentElement.lang=siteLanguage;
+  document.documentElement.dir=siteLanguage==='en'?'ltr':'rtl';
+  try{localStorage.setItem('rafaa-language',siteLanguage)}catch{}
+  document.querySelectorAll('#service option:not([value])').forEach(el=>{
+    el.value=originalText.get(el.firstChild)?.trim()||el.textContent.trim();
+  });
+  translateSite();
+  const button=document.getElementById('language-toggle');
+  button.textContent=siteLanguage==='ar'?'English':'العربية';
+  button.lang=siteLanguage==='ar'?'en':'ar';
+  button.setAttribute('aria-label',
+    siteLanguage==='ar'?'Switch the website to English':'تبديل الموقع إلى العربية');
+}
 function renderPage(){
-  document.querySelector('nav').classList.remove('open');
-  const p = location.hash.slice(1).split('?')[0]||'/';
-  app.innerHTML =
-    p==='/' ? home() :
-    p==='/services' ? serviceList() :
-    p.startsWith('/service/') ? detail(Number(p.split('/')[2])) :
-    p==='/request' ? request() :
-    p==='/about' ? about() :
-    p==='/vision' ? vision() :
-    p==='/faq' ? faq() :
-    p==='/packages' ? packages() :
-    p==='/contact' ? contact() : home();
+  document.getElementById('nav').classList.remove('open');
+  const p=location.hash.slice(1).split('?')[0]||'/';
+  app.innerHTML=
+    p==='/'?home():
+    p==='/services'?serviceList():
+    p.startsWith('/service/')?detail(Number(p.split('/')[2])):
+    p==='/request'?request():
+    p==='/about'?about():
+    p==='/vision'?vision():
+    p==='/faq'?faq():
+    p==='/packages'?packages():
+    p==='/contact'?contact():home();
   window.scrollTo(0,0);
-  document.title = (app.querySelector('h1')?.textContent||'الرئيسية')+
-    ' | رفاء للأعمال';
   app.classList.remove('reveal');
   void app.offsetWidth;
   app.classList.add('reveal');
-  document.querySelectorAll('nav a').forEach(a => {
+  document.querySelectorAll('#nav a').forEach(a=>{
     a.classList.toggle('active',a.getAttribute('href')==='#'+p);
   });
+  document.querySelectorAll('#service option:not([value])').forEach(el=>{
+    el.value=el.textContent.trim();
+  });
   enhance();
+  translateSite();
 }
 let changing=false;
 function route(){
   const progress=document.querySelector('.page-progress');
   progress.style.width='65%';
-  if(document.startViewTransition &&
-     !matchMedia('(prefers-reduced-motion: reduce)').matches &&
-     !changing){
+  if(document.startViewTransition&&
+    !matchMedia('(prefers-reduced-motion: reduce)').matches&&!changing){
     changing=true;
-    document.startViewTransition(renderPage).finished.finally(() => {
+    document.startViewTransition(renderPage).finished.finally(()=>{
       changing=false;
       progress.style.width='0';
     });
@@ -883,148 +1210,14 @@ function route(){
     progress.style.width='0';
   }
 }
-document.addEventListener('click',e => {
+document.addEventListener('click',e=>{
   if(!e.target.closest('.dropdown')){
-    document.querySelectorAll('.dropdown').forEach(d => d.open=false);
+    document.querySelectorAll('.dropdown').forEach(d=>d.open=false);
   }
 });
 window.addEventListener('hashchange',route);
 renderPage();
-</script> <style>
-.rafaa-social-footer {
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  gap: 18px;
-
-  padding: 16px;
-
-  color: #FFFFFF;
-
-}
-
-.rafaa-social-footer a {
-
-  display: inline-flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  width: 36px;
-
-  height: 36px;
-
-  color: inherit;
-
-}
-
-.rafaa-social-footer svg {
-
-  width: 20px;
-
-  height: 20px;
-
-  fill: currentColor;
-
-}
-
-.rafaa-social-footer a:focus-visible {
-
-  outline: 2px solid currentColor;
-
-  outline-offset: 3px;
-
-  border-radius: 4px;
-
-}
-
-</style>
-
-<nav class="rafaa-social-footer" aria-label="حسابات رفاء">
-
-  <a href="https://www.instagram.com/rafaa.bgroup/"
-
-     target="_blank" rel="noopener noreferrer"
-
-     aria-label="إنستغرام رفاء">
-
-    <svg viewBox="0 0 24 24" aria-hidden="true"
-
-         style="fill:none;stroke:currentColor;stroke-width:1.8">
-
-      <rect x="3" y="3" width="18" height="18" rx="5"/>
-
-      <circle cx="12" cy="12" r="4"/>
-
-      <circle cx="17.5" cy="6.5" r="1"
-
-              style="fill:currentColor;stroke:none"/>
-
-    </svg>
-
-  </a>
-
-  <a href="https://x.com/RAFAABGroup"
-
-     target="_blank" rel="noopener noreferrer"
-
-     aria-label="رفاء على X">
-
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-
-      <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6
-
-      5.5 22H2.3l7.3-8.5L1 2h6.5l4.5 6.8L18.9 2Zm-1.1
-
-      18h1.7L6.6 3.9H4.8L17.8 20Z"/>
-
-    </svg>
-
-  </a>
-
-  <a href="https://www.tiktok.com/@rafaabgroup"
-
-     target="_blank" rel="noopener noreferrer"
-
-     aria-label="تيك توك رفاء">
-
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-
-      <path d="M16.6 2c.4 2.4 1.8 3.9 4.4 4.1v3.3
-
-      c-1.6.1-3.2-.4-4.4-1.3v7.4a6.5 6.5 0 1 1-5.6-6.4
-
-      v3.4a3.2 3.2 0 1 0 2.3 3V2h3.3Z"/>
-
-    </svg>
-
-  </a>
-
-  <a href="https://www.facebook.com/profile.php?id=61594647311129"
-
-     target="_blank" rel="noopener noreferrer"
-
-     aria-label="فيسبوك رفاء">
-
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-
-      <path d="M13.5 22v-9h3l.5-3.5h-3.5V7.3
-
-      c0-1 .3-1.8 1.8-1.8H17V2.3
-
-      c-.8-.1-1.6-.2-2.5-.2
-
-      C12 2.1 10 3.7 10 6.7v2.8H7V13h3v9h3.5Z"/>
-
-    </svg>
-
-  </a>
-
-</nav>
+setSiteLanguage(siteLanguage);
+</script>
 </body>
 </html>
