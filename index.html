@@ -1,0 +1,897 @@
+انسخي الكود كاملًا في index.html، وخلي مجلد assets من الملف السابق بجانبه عشان يظهر شعارك والصور.
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>رفاء للأعمال | حلول تنمو مع طموحك</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+:root{--navy:#071d46;--gold:#cba452;--cream:#f7f8fb;--ink:#152747}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Cairo,Tahoma,sans-serif;color:#13233d;background:white}
+button,input,select,textarea{font:inherit}
+button,a{cursor:pointer}
+a{text-decoration:none;color:inherit}
+::selection{background:#d6bb7b;color:#081b3b}
+:focus-visible{outline:3px solid #cba452;outline-offset:5px}
+.top{background:#09182e;color:#e8edf6;padding:10px 5%;font-size:12px;display:flex;justify-content:space-between}
+.header{height:105px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:20;border-bottom:1px solid #edf0f3;backdrop-filter:blur(15px);background:#ffffffed}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{height:88px;width:95px;object-fit:contain}
+.logo b{font-size:15px;color:var(--navy)}
+.logo small{display:block;font-size:9px;letter-spacing:1.8px;color:#a18443}
+nav{display:flex;gap:24px;align-items:center;font-size:13px;font-weight:800}
+nav a:hover,nav a.active{color:#ad8636}
+.menu{display:none}
+.btn{border:0;border-radius:9px;background:var(--gold);color:#071d46;padding:13px 24px;font-weight:800;display:inline-flex;gap:8px;align-items:center;justify-content:center;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px #071d4625}
+.btn.dark{background:#0b254b;color:white}
+.btn.outline{background:transparent;border:1px solid #d2d8e3;color:var(--navy)}
+.link{background:none;border:0;padding:0;color:#a47d30;font-weight:800}
+.dropdown{position:relative}
+.dropdown summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;white-space:nowrap;padding:20px 0}
+.dropdown summary::-webkit-details-marker{display:none}
+.dropdown summary span{color:#9b8656}
+.drop-panel{position:absolute;top:100%;right:0;width:230px;background:#fff;border:1px solid #eee;border-radius:14px;padding:14px;box-shadow:0 18px 60px #09182e20;animation:rise .25s ease}
+.drop-panel a{display:block;padding:11px;border-radius:6px}
+.drop-panel a:hover{background:#f8f5ed}
+.mega{width:690px;right:-230px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:25px}
+.mega small{color:#a18443;font-size:12px}
+.mega-bottom{grid-column:1/-1;border-top:1px solid #eee}
+.hero{min-height:565px;background:radial-gradient(#d2bc881d 1px,transparent 1px) 0 0/23px 23px,#fff;color:#0a1933;display:grid;grid-template-columns:1.25fr 1fr;align-items:center;padding:65px 5% 85px;gap:70px;overflow:hidden}
+.eyebrow{color:#967535;font-weight:800;letter-spacing:.5px;font-size:12px}
+.hero .eyebrow{display:inline-block;padding:8px 18px;background:#fbf7ee;border:1px solid #e8dcc3;border-radius:30px}
+.hero h1{font-size:clamp(38px,4.8vw,68px);line-height:1.4;letter-spacing:-1.5px;margin:18px 0 22px}
+.hero h1 em{font-style:normal;color:#9f7d36}
+.hero p{font-size:16px;line-height:2.15;color:#778191;max-width:580px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-visual{position:relative}
+.hero-photo{width:100%;height:345px;object-fit:cover;border-radius:26px;box-shadow:0 25px 45px #11223a22;display:block}
+.visual-note{position:absolute;bottom:-25px;right:25px;left:25px;padding:20px 25px;background:#fff;border:1px solid #e9e2d4;border-radius:14px;display:flex;gap:15px;align-items:center;box-shadow:0 10px 30px #10244015}
+.visual-note b{font-size:14px}
+.visual-note small{display:block;color:#8c95a2;font-size:11px;margin-top:4px}
+.seal{width:43px;height:43px;border:1px solid #d1b776;border-radius:50%;display:grid;place-items:center;color:#ac8637;font-size:22px;flex-shrink:0}
+.section{padding:78px 5%}
+.section.alt{background:#f8f9fc}
+.head{text-align:center;margin-bottom:36px}
+.head h2{font-size:36px;line-height:1.6;color:var(--navy);margin:8px 0}
+.head p{color:#718097;margin:0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border:1px solid #e9edf3;border-radius:18px;padding:28px;box-shadow:0 8px 26px #071d4608;transition:.2s}
+.card:hover{transform:translateY(-5px);box-shadow:0 14px 32px #071d4616}
+.icon{width:54px;height:54px;background:#f8f3e7;color:#9d7a34;border-radius:10px;display:grid;place-items:center;font-size:26px}
+.card h3{color:var(--navy);margin:17px 0 8px}
+.card p{color:#718097;line-height:1.9;font-size:13px;min-height:50px}
+.intro-services{padding:0 5% 55px;background:#f8f9fc}
+.intro-services .grid{grid-template-columns:repeat(4,1fr);gap:20px;position:relative;top:-20px;margin-bottom:-20px}
+.intro-services .card{border:0;padding:30px;border-radius:18px;box-shadow:0 10px 35px #18274208}
+.intro-services .card h3{font-size:19px}
+.intro-services .card p{min-height:70px;line-height:2}
+.stats{background:#091b3b;color:#fff;padding:40px 5%;display:grid;grid-template-columns:repeat(4,1fr);text-align:center;gap:15px;border-bottom:3px solid #c6a65d}
+.stats strong{font-size:22px;color:#e8c47a;display:block;margin:8px 0}
+.stats span{font-size:12px;color:#e2e8f1}
+.service-card{padding:0;border-radius:17px;overflow:hidden;box-shadow:0 6px 25px #11223a08;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
+.card-media{height:220px;position:relative;overflow:hidden;display:block}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s;filter:saturate(.65)}
+.service-card:hover img{transform:scale(1.06)}
+.card-media span{position:absolute;right:16px;bottom:15px;color:white;background:#0a2248c9;padding:6px 13px;border-radius:5px;font-size:11px}
+.card-body{padding:23px;flex:1;display:flex;flex-direction:column}
+.card-body h3{margin:0 0 6px;font-size:19px}
+.card-body p{margin-top:4px;font-size:13px}
+.card-meta{margin-top:auto;padding-top:18px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#87919f}
+.card-meta a{font-size:12px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{padding:26px;background:transparent;border-top:1px solid #c9ae75}
+.step b{font-size:38px;font-weight:500;color:#cba452}
+.step h3{margin:5px 0;color:var(--navy);font-size:18px}
+.step p{font-size:13px;color:#748096}
+.banner{background:linear-gradient(110deg,#091b3bed,#102b52ed),url(assets/towers.jpg) center/cover;color:white;padding:60px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.banner h2{font-size:30px;margin:0}
+.banner p{color:#d6dfec}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.split img{width:100%;height:400px;object-fit:cover;border-radius:22px}
+.split h2{font-size:35px;line-height:1.65}
+.split p{color:#7b8695;line-height:2.2}
+.overline{letter-spacing:3px;font-size:10px;color:#aa873d}
+.pagehero{position:relative;background:linear-gradient(90deg,#06152cb0,#081b3bee),url(assets/office.jpg) center/cover;padding:70px 5%;min-height:255px;color:#fff}
+.pagehero h1{font-size:44px;margin:10px 0}
+.pagehero p{color:#d3ddeb}
+.pagehero .eyebrow{color:#dec388}
+.breadcrumb{font-size:12px;color:#d5dce7;margin-bottom:16px}
+.breadcrumb a{color:#e0c589}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 30px}
+.chip{background:white;border:1px solid #e0e5ec;padding:9px 15px;border-radius:7px;color:var(--navy)}
+.chip.active{background:var(--navy);color:#fff}
+.search{padding:18px 22px;border:1px solid #dce2eb;border-radius:9px;width:100%;outline:none}
+.detail-layout{display:grid;grid-template-columns:minmax(0,2fr) minmax(250px,1fr);gap:50px;align-items:start}
+.detail{max-width:850px;margin:auto}
+.detail-layout .detail{width:100%;max-width:none}
+.detail p{line-height:2.2;color:#65738b}
+.detail li{line-height:2.4}
+.detail-photo{width:100%;height:300px;object-fit:cover;border-radius:15px;margin:20px 0}
+.service-sidebar{border:1px solid #e4e8ee;padding:28px;border-radius:14px;position:sticky;top:135px;background:#fff}
+.service-sidebar h3{margin-top:0}
+.service-sidebar p{color:#7b8695;font-size:13px;line-height:2}
+.service-sidebar .btn{width:100%}
+.back{margin-bottom:25px;display:inline-block;color:#9d7a34;font-weight:800}
+.note{font-size:12px;color:#8490a1;line-height:1.9}
+.faq{max-width:850px;margin:auto}
+.faq details{padding:18px 22px;border:1px solid #e2e6ed;margin:12px 0;border-radius:12px}
+.faq summary{font-weight:800;cursor:pointer}
+.faq p{line-height:2;color:#68768b}
+.mini-faq{padding-top:15px}
+.mini-faq details{background:white}
+.contact-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.contact-panel{background:#091d40;color:#fff;border-radius:20px;padding:38px}
+.contact-panel h2{font-size:28px}
+.contact-panel p{color:#c4cedc;font-size:14px;line-height:2}
+.contact-item{border-top:1px solid #ffffff20;padding:20px 0}
+.contact-item small{color:#d4b570;display:block;margin-bottom:8px}
+.contact-item a{display:block}
+.form{margin:auto;background:#fff;padding:32px;border-radius:20px;border:1px solid #e7ecf1;width:100%}
+.form label{display:block;font-size:13px;font-weight:800;margin:12px 0 6px;color:#203452}
+.form input,.form select,.form textarea{width:100%;border:1px solid #dce3eb;padding:12px;border-radius:9px;background:#fff;color:#162a47}
+.form textarea{height:110px}
+.form input:focus,.form textarea:focus,.form select:focus{outline:2px solid #cba452;border-color:transparent}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+.form-note{border:1px solid #eee6d5;background:#fbf8f1;padding:14px;border-radius:9px;line-height:1.8;font-size:12px;color:#826730}
+.form input[type=checkbox]{width:auto}
+.consent{display:flex!important;gap:10px;align-items:flex-start;font-weight:400!important}
+.form .submit-status{color:#527054;font-size:13px;line-height:2}
+.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.package{padding:0;border-radius:18px;overflow:hidden;border:1px solid #e3e8ef;background:#fff;display:flex;flex-direction:column}
+.package-top{padding:32px;border-bottom:1px solid #edf0f4}
+.package-top h2{font-size:26px;margin:13px 0}
+.package-top p{font-size:13px;color:#7e8998;line-height:2}
+.package-top small{color:#a58747;font-size:10px;letter-spacing:2px}
+.package.featured{border:1px solid #cba452;box-shadow:0 15px 45px #152c4b10}
+.package.featured .package-top{background:#0b2449;color:#fff}
+.package.featured .package-top p{color:#ccd4df}
+.package-bottom{padding:32px;display:flex;flex-direction:column;flex:1}
+.package ul{list-style:none;padding:0;margin:0 0 25px;font-size:14px;color:#5b6e85}
+.package li{padding:12px 0;border-bottom:1px solid #eff1f4}
+.package li:before{content:'✓';color:#a78237;margin-left:10px}
+.package .btn{margin-top:auto}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}
+.values article{padding:25px 0;border-top:1px solid #cba452}
+.values article b{font-size:30px;color:#cba452;font-weight:500}
+.values h3{font-size:21px}
+.values p{color:#778697;font-size:14px;line-height:2}
+.footer{background:#06152f;color:#d6dfed;padding:60px 5% 25px}
+.footergrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:45px}
+.footer h3{font-size:16px}
+.footer a{display:block;margin:9px 0;color:#d6dfed;font-size:13px}
+.footer p{font-size:13px;line-height:2}
+.footerbottom{border-top:1px solid #ffffff20;margin-top:30px;padding-top:16px;font-size:12px;text-align:center}
+.quick-contact{position:fixed;bottom:25px;left:24px;z-index:30;display:grid;gap:10px}
+.quick-contact a{width:48px;height:48px;border-radius:50%;background:#0b254b;color:white;display:grid;place-items:center;font-size:20px;box-shadow:0 7px 22px #09182e30}
+.quick-contact .wa{background:#9e7d38;font-size:13px;font-weight:bold}
+.back-to-top{position:fixed;right:22px;bottom:22px;width:42px;height:42px;border:1px solid #dcc9a0;background:#fff;color:#0b2449;border-radius:50%;cursor:pointer;z-index:20}
+.page-progress{position:fixed;top:0;right:0;z-index:100;height:3px;background:#cba452;width:0;transition:width .35s}
+main{min-height:55vh}
+.reveal{animation:rise .7s ease both}
+.observed{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.observed.visible{opacity:1;transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+::view-transition-old(root){animation:fade-out .18s ease both}
+::view-transition-new(root){animation:rise .4s ease both}
+@keyframes fade-out{to{opacity:0;transform:translateY(-8px)}}
+@media(max-width:1150px){
+nav{gap:16px;font-size:12px}
+.logo b,.logo small{display:none}
+.hero{gap:35px}
+.intro-services .card{padding:23px}
+}
+@media(max-width:850px){
+.header{height:83px}
+.logo img{height:70px;width:65px}
+.logo b,.logo small{display:block}
+.logo b{font-size:14px}
+.top{font-size:9px;gap:10px}
+.top span:first-child{display:none}
+.top span:last-child{margin:auto}
+nav{display:none;position:absolute;top:83px;left:0;right:0;background:#fff;padding:18px;flex-direction:column;box-shadow:0 12px 18px #0002;align-items:stretch;gap:8px;max-height:80vh;overflow:auto}
+nav.open{display:flex}
+nav>a{padding:10px}
+.menu{display:block;background:transparent;border:0;font-size:26px}
+.dropdown summary{padding:10px}
+.drop-panel,.mega{position:static;width:100%;display:block;box-shadow:none;margin-top:8px}
+.mega>div{margin-bottom:16px}
+.hero{grid-template-columns:1fr;padding:45px 6% 65px;gap:40px}
+.hero h1{font-size:43px}
+.hero-photo{height:295px}
+.hero-visual{margin-bottom:15px}
+.intro-services{padding:0 6% 35px}
+.intro-services .grid{grid-template-columns:repeat(2,1fr)}
+.intro-services .card{padding:19px}
+.intro-services .card h3{font-size:16px}
+.section{padding:52px 6%}
+.grid{grid-template-columns:repeat(2,1fr);gap:16px}
+.head h2{font-size:29px}
+.split{grid-template-columns:1fr;gap:25px}
+.split img{height:280px}
+.split h2{font-size:29px}
+.detail-layout{grid-template-columns:1fr}
+.service-sidebar{position:static}
+.pagehero h1{font-size:32px}
+.card-media{height:180px}
+.card-body{padding:18px}
+.card-meta{display:grid;gap:12px}
+.stats,.steps{grid-template-columns:1fr 1fr}
+.footergrid{grid-template-columns:1fr 1fr}
+.footergrid>div:first-child{grid-column:1/-1}
+.banner{flex-direction:column;align-items:flex-start}
+.banner h2{font-size:25px}
+.contact-layout,.packages-grid,.values{grid-template-columns:1fr}
+.package-top,.package-bottom{padding:25px}
+.values{gap:15px}
+.contact-panel{padding:25px}
+}
+@media(max-width:520px){
+.grid{grid-template-columns:1fr}
+.hero h1{font-size:38px}
+.hero-photo{height:245px}
+.hero-buttons .btn{padding:11px 17px;font-size:13px}
+.intro-services .grid{grid-template-columns:1fr 1fr}
+.intro-services .card{padding:17px}
+.intro-services .card p{font-size:11px;min-height:85px}
+.intro-services .link{font-size:11px}
+.steps{gap:12px}
+.step{padding:16px}
+.visual-note{right:15px;left:15px;padding:16px}
+.footergrid{gap:25px}
+.quick-contact{left:15px;bottom:15px}
+.quick-contact a{width:43px;height:43px}
+.form{padding:23px}
+.form-grid{grid-template-columns:1fr}
+.back-to-top{right:15px;bottom:15px}
+}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+*,*::before,*::after{animation:none!important;transition:none!important}
+.observed{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="top">
+  <span>مجموعة رفاء للأعمال | شريكك في رحلة النمو</span>
+  <span>✉ Info@rafaabg.com &nbsp; | &nbsp; ☎ +966 56 831 0206</span>
+</div>
+<header class="header">
+  <a class="logo" href="#/">
+    <img src="assets/logo.jpg" alt="شعار رفاء الأصلي">
+    <div>
+      <b>مجموعة رفاء للأعمال</b>
+      <small>RAFAA BUSINESS</small>
+    </div>
+  </a>
+  <button aria-label="فتح القائمة" class="menu"
+    onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+  <nav id="nav" aria-label="التنقل الرئيسي">
+    <a href="#/">الرئيسية</a>
+    <details class="dropdown">
+      <summary>نبذة عنا <span>⌄</span></summary>
+      <div class="drop-panel">
+        <a href="#/about">من نحن</a>
+        <a href="#/vision">رؤيتنا ورسالتنا</a>
+        <a href="#/faq">الأسئلة الشائعة</a>
+      </div>
+    </details>
+    <details class="dropdown wide">
+      <summary>خدمات أعمال <span>⌄</span></summary>
+      <div class="drop-panel mega">
+        <div>
+          <small>التأسيس والانطلاق</small>
+          <a href="#/service/0">تأسيس الشركات</a>
+          <a href="#/service/1">السجلات التجارية</a>
+          <a href="#/service/6">تعديل عقود التأسيس</a>
+        </div>
+        <div>
+          <small>التشغيل والنمو</small>
+          <a href="#/service/2">خدمات المستثمرين</a>
+          <a href="#/service/4">الموارد البشرية</a>
+          <a href="#/service/5">المنصات الحكومية</a>
+        </div>
+        <div>
+          <small>التراخيص والعلامات</small>
+          <a href="#/service/3">التراخيص والتصاريح</a>
+          <a href="#/service/7">العلامات التجارية</a>
+          <a href="#/service/8">خدمات المنشآت</a>
+        </div>
+        <a class="mega-bottom" href="#/services">عرض جميع الخدمات ←</a>
+      </div>
+    </details>
+    <a href="#/packages">باقات الأعمال</a>
+    <a href="#/contact">اتصل بنا</a>
+    <a class="btn dark" href="#/request">اطلب خدمة ←</a>
+  </nav>
+</header>
+<div class="page-progress"></div>
+<main id="app" aria-label="محتوى الصفحة"></main>
+<div class="quick-contact">
+  <a href="tel:+966568310206" aria-label="اتصل برفاء">☎</a>
+  <a class="wa" href="https://wa.me/966568310206"
+     target="_blank" rel="noopener" aria-label="واتساب رفاء">واتساب</a>
+</div>
+<button class="back-to-top" aria-label="العودة إلى أعلى الصفحة"
+  onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<footer class="footer">
+  <div class="footergrid">
+    <div>
+      <h3 style="color:#e9c780">مجموعة رفاء للأعمال</h3>
+      <p>حلول أعمال مصممة لتسهيل رحلتك من الفكرة إلى الانطلاق، ومساندة منشأتك في مراحل نموها.</p>
+    </div>
+    <div>
+      <h3>روابط سريعة</h3>
+      <a href="#/about">من نحن</a>
+      <a href="#/services">الخدمات</a>
+      <a href="#/packages">الباقات</a>
+      <a href="#/faq">الأسئلة الشائعة</a>
+    </div>
+    <div>
+      <h3>تواصل معنا</h3>
+      <a href="mailto:Info@rafaabg.com">Info@rafaabg.com</a>
+      <a href="tel:+966568310206">+966 56 831 0206</a>
+      <a href="#/contact">نموذج التواصل</a>
+    </div>
+  </div>
+  <div class="footerbottom">© 2026 مجموعة رفاء للأعمال — جميع الحقوق محفوظة</div>
+</footer>
+<script>
+const services = [
+  ['تأسيس الشركات','مساندة تأسيس المنشآت وإعداد متطلبات الانطلاق والإجراءات ذات الصلة.','🏢','التأسيس'],
+  ['السجلات التجارية','متابعة طلبات إصدار وتعديل وتحديث بيانات السجلات التجارية.','📋','التأسيس'],
+  ['خدمات المستثمرين','مساندة المستثمرين في فهم المتطلبات والإجراءات والطلبات ذات العلاقة.','🌐','الاستثمار'],
+  ['التراخيص والتصاريح','تنسيق ومتابعة متطلبات التراخيص والتصاريح للأنشطة المختلفة.','🪪','التراخيص'],
+  ['خدمات الموارد البشرية','دعم المنشآت في إجراءات الموارد البشرية والمنصات ذات العلاقة.','👥','التشغيل'],
+  ['خدمات المنصات الحكومية','متابعة الإجراءات الإدارية للمنشآت عبر المنصات الحكومية.','🏛️','التشغيل'],
+  ['تعديل عقود التأسيس','مساندة تجهيز متطلبات تعديلات عقد التأسيس وبيانات الشركاء.','✍️','التأسيس'],
+  ['العلامات التجارية','المساعدة في تجهيز ومتابعة طلبات العلامات التجارية وفق المتطلبات.','®️','التراخيص'],
+  ['خدمات المنشآت','تنسيق احتياجات المنشأة الإدارية ومتابعة معاملاتها.','💼','التشغيل']
+];
+const app = document.getElementById('app');
+const photos = ['towers','office','towers','office','meeting','hero','meeting','office','hero'];
+const hero = (title,sub) => `
+  <div class="pagehero">
+    <div class="breadcrumb"><a href="#/">الرئيسية</a> / ${title}</div>
+    <span class="eyebrow">RAFAA BUSINESS</span>
+    <h1>${title}</h1>
+    <p>${sub}</p>
+  </div>`;
+const heading = (small,title,desc) => `
+  <div class="head">
+    <span class="eyebrow">${small}</span>
+    <h2>${title}</h2>
+    <p>${desc}</p>
+  </div>`;
+const card = (s,i) => `
+  <article class="card service-card">
+    <a href="#/service/${i}" class="card-media" aria-label="${s[0]}">
+      <img src="assets/${photos[i]}.jpg" alt="${s[0]}" loading="lazy">
+      <span>${s[3]}</span>
+    </a>
+    <div class="card-body">
+      <h3>${s[0]}</h3>
+      <p>${s[1]}</p>
+      <div class="card-meta">
+        <span>عرض سعر مخصص</span>
+        <a class="link" href="#/service/${i}">عرض التفاصيل ←</a>
+      </div>
+    </div>
+  </article>`;
+function cta(){
+  return `
+    <div class="banner">
+      <div>
+        <h2>جاهز تبدأ خطوتك القادمة؟</h2>
+        <p>خلّنا نتعرف على احتياجك ونساعدك في تحديد الخدمة المناسبة.</p>
+      </div>
+      <a class="btn" href="#/request">ابدأ طلبك الآن ←</a>
+    </div>`;
+}
+function lineIcon(i){
+  const paths = i === 0
+    ? '<path d="M4 21V6h10v15M14 11h6v10M2 21h20M7 10h4M7 14h4M7 18h4M17 14h1M17 18h1"/>'
+    : i === 2
+    ? '<circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6h14M5 18h14"/>'
+    : i === 3
+    ? '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h8m-7 5 2 2 4-4"/>'
+    : '<circle cx="9" cy="8" r="3"/><path d="M2 21v-3a7 7 0 0 1 14 0v3m-1-16a3 3 0 0 1 0 6m4 10v-3a7 7 0 0 0-2-5"/>';
+  return `<svg width="27" height="27" viewBox="0 0 24 24" fill="none"
+    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+    aria-hidden="true">${paths}</svg>`;
+}
+function faqItems(){
+  return [
+    ['كيف أبدأ طلب الخدمة؟','اختر الخدمة، اطّلع على تفاصيلها، ثم عبّئ بيانات الطلب.'],
+    ['كيف تُحدد أتعاب الخدمة؟','يُقدم عرض سعر بعد مراجعة احتياجك وتحديد نطاق العمل، مع توضيح الرسوم الحكومية إن وجدت.'],
+    ['كم تستغرق الخدمة؟','تختلف المدة بحسب نوع الطلب واكتمال مستنداته وإجراءات الجهة المختصة.']
+  ].map(x => `<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('');
+}
+function home(){
+  return `
+    <section class="hero">
+      <div class="reveal">
+        <span class="eyebrow">حلول أعمال متكاملة في السعودية</span>
+        <h1>نؤسس لطموحك.<br><em>ونرافق نمو أعمالك.</em></h1>
+        <p>مع مجموعة رفاء للأعمال، تصبح خطواتك أكثر وضوحًا. من التأسيس إلى التشغيل والتوسع، نساعدك على تحويل طموحك إلى عمل يمضي بثقة.</p>
+        <div class="hero-buttons">
+          <a class="btn dark" href="#/request">ابدأ رحلتك معنا ←</a>
+          <a class="btn outline" href="#/contact">تواصل مع فريقنا</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <img class="hero-photo" src="assets/hero.jpg" alt="مساحة أعمال حديثة بإطلالة واسعة">
+        <div class="visual-note">
+          <span class="seal">↗</span>
+          <div>
+            <b>آفاق أوسع لأعمالك</b>
+            <small>وضوح في الخطوات. اهتمام بالتفاصيل.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="intro-services">
+      <div class="grid">
+        ${[0,2,3,4].map(i => `
+          <article class="card">
+            <div class="icon">${lineIcon(i)}</div>
+            <h3>${services[i][0]}</h3>
+            <p>${services[i][1]}</p>
+            <a class="link" href="#/service/${i}">اطلب الخدمة ←</a>
+          </article>`).join('')}
+      </div>
+    </section>
+    <section class="section">
+      <div class="split">
+        <div>
+          <span class="overline">ABOUT RAFAA</span>
+          <h2>كل خطوة مدروسة،<br>تفتح لك أفقًا جديدًا.</h2>
+          <p>نجمع بين فهم احتياجك وتنظيم الإجراءات ومتابعة التفاصيل، لتتمكن من التركيز على ما تصنعه أعمالك من قيمة.</p>
+          <a class="btn outline" href="#/about">تعرّف على رفاء ←</a>
+        </div>
+        <img src="assets/towers.jpg" alt="عمارة أعمال حديثة">
+      </div>
+    </section>
+    <div class="stats">
+      <div><strong>بداية مدروسة</strong><span>فهم الاحتياج قبل التنفيذ</span></div>
+      <div><strong>خطوات واضحة</strong><span>نطاق عمل محدد</span></div>
+      <div><strong>متابعة مستمرة</strong><span>تواصل في مراحل الطلب</span></div>
+      <div><strong>حلول مناسبة</strong><span>خدمات تراعي طبيعة منشأتك</span></div>
+    </div>
+    <section class="section alt">
+      ${heading('خدمات تفصيلية','ماذا نقدم لأعمالك؟','تصفح الخدمات، اطّلع على التفاصيل، وابدأ من حيث يحتاج مشروعك.')}
+      <div class="filters" style="justify-content:center">
+        <a class="chip" href="#/services?category=التأسيس">التأسيس</a>
+        <a class="chip" href="#/services?category=الاستثمار">الاستثمار</a>
+        <a class="chip" href="#/services?category=التراخيص">التراخيص</a>
+        <a class="chip" href="#/services?category=التشغيل">التشغيل</a>
+      </div>
+      <div class="grid">${services.slice(0,6).map(card).join('')}</div>
+      <p style="text-align:center;margin-top:35px">
+        <a class="btn dark" href="#/services">عرض جميع الخدمات ←</a>
+      </p>
+    </section>
+    <section class="section">
+      ${heading('الآلية','رحلتك مع رفاء','من أول تواصل، وحتى اكتمال نطاق العمل.')}
+      <div class="steps">
+        ${[
+          ['01','اختر خدمتك','تصفح الخدمات وحدد احتياجك.'],
+          ['02','مراجعة الطلب','نراجع التفاصيل والمتطلبات.'],
+          ['03','الاتفاق والتنفيذ','نوضح نطاق العمل ونتابع إجراءاته.'],
+          ['04','تسليم المخرجات','نشاركك النتائج والخطوات التالية.']
+        ].map(x => `
+          <div class="step">
+            <b>${x[0]}</b><h3>${x[1]}</h3><p>${x[2]}</p>
+          </div>`).join('')}
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="split">
+        <div>
+          <span class="overline">WE ARE HERE FOR YOU</span>
+          <h2>عندك استفسار؟<br>نساعدك تحدد البداية.</h2>
+          <p>تعرّف على طريقة طلب الخدمة، وكيف تُحدد المتطلبات والرسوم.</p>
+          <a class="link" href="#/faq">جميع الأسئلة الشائعة ←</a>
+        </div>
+        <div class="faq mini-faq">${faqItems()}</div>
+      </div>
+    </section>
+    ${cta()}`;
+}
+let cat = 'الكل';
+function serviceList(){
+  return `
+    ${hero('خدمات رفاء للأعمال','تصفح خدماتنا واختر ما يناسب احتياجات منشأتك.')}
+    <section class="section alt">
+      <input class="search" id="q" aria-label="ابحث عن خدمة"
+        placeholder="ابحث عن خدمة أو كلمة مفتاحية..." oninput="filterServices()">
+      <div class="filters" id="chips">
+        ${['الكل','التأسيس','الاستثمار','التراخيص','التشغيل'].map((x,i) => `
+          <button class="chip ${i===0?'active':''}"
+            onclick="filterServices('${x}',this)">${x}</button>`).join('')}
+      </div>
+      <div class="grid" id="results">${services.map(card).join('')}</div>
+    </section>`;
+}
+function filterServices(c,el){
+  if(c){
+    cat = c;
+    document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+    el.classList.add('active');
+  }
+  const q = document.getElementById('q').value.trim();
+  document.getElementById('results').innerHTML = services
+    .map((s,i) => ({s,i}))
+    .filter(o => (cat==='الكل'||o.s[3]===cat) && o.s.join(' ').includes(q))
+    .map(o => card(o.s,o.i)).join('')
+    || '<p>لا توجد خدمات مطابقة للبحث.</p>';
+}
+function detail(i){
+  const s = services[i];
+  if(!s) return serviceList();
+  return `
+    ${hero(s[0],s[1])}
+    <section class="section alt">
+      <a class="back" href="#/services">← العودة إلى دليل الخدمات</a>
+      <div class="detail-layout">
+        <div class="detail">
+          <img class="detail-photo" src="assets/${photos[i]}.jpg" alt="${s[0]}">
+          <h2>نبذة عن الخدمة</h2>
+          <p>${s[1]} نبدأ بفهم حالة المنشأة وتحديد متطلباتها، ثم نوضح نطاق العمل قبل التنفيذ.</p>
+          <h2>ماذا تشمل رحلة الخدمة؟</h2>
+          <ul>
+            <li>مراجعة تفاصيل الطلب والبيانات الأساسية.</li>
+            <li>تحديد المستندات والخطوات اللازمة.</li>
+            <li>الاتفاق على نطاق العمل وعرض السعر.</li>
+            <li>متابعة الإجراءات ومشاركة تحديثاتها.</li>
+          </ul>
+          <h2>المتطلبات المبدئية</h2>
+          <p>بيانات المنشأة أو صاحب الطلب، ووصف الاحتياج، والمستندات المتاحة ذات العلاقة. يوضح فريق رفاء القائمة المناسبة بعد مراجعة حالتك.</p>
+        </div>
+        <aside class="service-sidebar">
+          <span class="eyebrow">ابدأ من هنا</span>
+          <h3>${s[0]}</h3>
+          <p>الأتعاب<br><b>عرض سعر حسب نطاق العمل</b></p>
+          <p>المدة<br><b>تُحدد بعد مراجعة الطلب</b></p>
+          <hr style="border:0;border-top:1px solid #eee">
+          <p>نرتب معك الخطوة التالية ونوضح التفاصيل قبل البدء.</p>
+          <a class="btn dark" href="#/request?service=${i}">اطلب هذه الخدمة ←</a>
+          <a href="#/contact" style="display:block;text-align:center;margin-top:18px;font-size:13px">استفسر عن الخدمة</a>
+        </aside>
+      </div>
+    </section>`;
+}
+function about(){
+  return `
+    ${hero('من نحن','رفاء للأعمال — اهتمام بالتفاصيل، ووضوح في الرحلة.')}
+    <section class="section">
+      <div class="split">
+        <div>
+          <span class="overline">RAFAA BUSINESS GROUP</span>
+          <h2>نساعدك تبني أعمالك،<br>وتتفرغ لطموحك.</h2>
+          <p>تبدأ رحلتنا معك من فهم احتياج منشأتك، ثم تحديد الإجراءات والمتطلبات المناسبة، ومتابعة التفاصيل ضمن نطاق عمل واضح ومتفق عليه.</p>
+          <p>نسعى إلى تقديم تجربة منظمة لأصحاب الأعمال والمستثمرين؛ تتسم بالتواصل الواضح والعناية بكل خطوة.</p>
+          <a class="btn dark" href="#/services">استكشف خدماتنا ←</a>
+        </div>
+        <img src="assets/office.jpg" alt="مساحة أعمال مرتبة">
+      </div>
+    </section>
+    <section class="section alt">
+      ${heading('ما يوجّه عملنا','قيم نعتمد عليها في كل خطوة','الوضوح والمتابعة وفهم الاحتياج أساس تجربتك معنا.')}
+      <div class="values">
+        <article><b>01</b><h3>الوضوح</h3><p>نحدد نطاق الخدمة والمتطلبات قبل البدء، ونوضح ما يحتاجه الطلب.</p></article>
+        <article><b>02</b><h3>الاهتمام</h3><p>ننظر إلى تفاصيل المنشأة وطبيعة احتياجها قبل اقتراح المسار.</p></article>
+        <article><b>03</b><h3>المتابعة</h3><p>نتواصل بشأن خطوات العمل ونشارك تحديثات الطلب ومخرجاته.</p></article>
+      </div>
+    </section>
+    <section class="section">
+      <div class="split">
+        <img src="assets/towers.jpg" alt="آفاق الأعمال والنمو">
+        <div>
+          <span class="overline">OUR DIRECTION</span>
+          <h2>رؤية تنطلق من طموحك.</h2>
+          <p>أن نكون شريكًا موثوقًا في رحلة تأسيس ونمو الأعمال، بتجربة خدمات واضحة وميسّرة ومهنية.</p>
+          <a class="link" href="#/vision">رؤيتنا ورسالتنا ←</a>
+        </div>
+      </div>
+    </section>
+    ${cta()}`;
+}
+function vision(){
+  return `
+    ${hero('رؤيتنا ورسالتنا','طموح واضح، وعناية بالتفاصيل.')}
+    <section class="section">
+      <div class="split">
+        <div>
+          <span class="overline">OUR VISION</span>
+          <h2>شراكة تدعم مسار أعمالك.</h2>
+          <h3>رؤيتنا</h3>
+          <p>أن نكون شريكًا موثوقًا في رحلة تأسيس ونمو الأعمال.</p>
+          <h3>رسالتنا</h3>
+          <p>تقديم تجربة خدمات أعمال واضحة وميسّرة ومهنية.</p>
+        </div>
+        <img src="assets/office.jpg" alt="بيئة أعمال حديثة">
+      </div>
+    </section>
+    ${cta()}`;
+}
+function packages(){
+  const packs = [
+    ['START','باقة الانطلاق','لمن يبدأ مشروعه ويحتاج إلى ترتيب متطلبات التأسيس.',
+      ['مراجعة احتياج المشروع','تحديد متطلبات الانطلاق','تنظيم الخطوات والمستندات','عرض سعر حسب نطاق العمل']],
+    ['GROW','باقة النمو','للمنشآت التي ترغب في تنظيم إجراءاتها ومتابعة احتياجاتها.',
+      ['مراجعة الوضع والاحتياج','تحديد الخدمات المناسبة','تنسيق الإجراءات المطلوبة','متابعة ضمن نطاق متفق عليه']],
+    ['BUSINESS','باقة الأعمال المتكاملة','لمجموعة احتياجات إدارية وتشغيلية تُرتب في نطاق واحد.',
+      ['مراجعة احتياجات المنشأة','جمع الخدمات في نطاق مخصص','تحديد أولويات العمل','عرض سعر ومخرجات واضحة']]
+  ];
+  return `
+    ${hero('باقات الأعمال','اختر مسارًا يناسب المرحلة التي تعيشها منشأتك.')}
+    <section class="section alt">
+      ${heading('حلول مرنة','لكل مرحلة، بداية مناسبة.','مسارات مقترحة؛ تُعتمد الخدمات والأتعاب بعد مراجعة احتياجك.')}
+      <div class="packages-grid">
+        ${packs.map((p,i) => `
+          <article class="package ${i===1?'featured':''}">
+            <div class="package-top">
+              <small>RAFAA / ${p[0]}</small>
+              <h2>${p[1]}</h2><p>${p[2]}</p>
+            </div>
+            <div class="package-bottom">
+              <ul>${p[3].map(x => `<li>${x}</li>`).join('')}</ul>
+              <a class="btn ${i===1?'':'dark'}" href="#/request?package=${i}">
+                اطلب عرضًا لهذه الباقة ←
+              </a>
+            </div>
+          </article>`).join('')}
+      </div>
+      <p class="note" style="text-align:center;margin-top:25px">
+        الرسوم الحكومية إن وجدت تُوضح بشكل مستقل في عرض السعر.
+      </p>
+    </section>
+    ${cta()}`;
+}
+function faq(){
+  const questions = [
+    ['كيف أطلب خدمة من رفاء؟','اختر الخدمة المناسبة من قائمة الخدمات ثم عبّئ نموذج الطلب.'],
+    ['هل يمكن الاستفسار قبل تقديم الطلب؟','نعم، يمكنك التواصل معنا لشرح احتياجك قبل اختيار الخدمة.'],
+    ['كم تستغرق إجراءات الخدمة؟','تختلف المدة حسب الخدمة والجهة المختصة واكتمال المتطلبات.'],
+    ['هل رسوم الجهات الحكومية ضمن سعر الخدمة؟','تُوضح الرسوم الحكومية وأتعاب الخدمة في عرض السعر بعد مراجعة الطلب.'],
+    ['هل أستطيع متابعة طلبي؟','يمكن التنسيق مع فريق العمل للحصول على تحديثات الطلب.']
+  ];
+  return `
+    ${hero('الأسئلة الشائعة','إجابات مختصرة على أكثر الاستفسارات شيوعًا.')}
+    <section class="section alt">
+      <div class="faq">
+        ${questions.map(x => `<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('')}
+      </div>
+    </section>`;
+}
+function requestForm(){
+  const params = new URLSearchParams(location.hash.split('?')[1]||'');
+  const id = params.get('service');
+  const pack = params.get('package');
+  const names = ['باقة الانطلاق','باقة النمو','باقة الأعمال المتكاملة'];
+  return `
+    <form class="form" id="request-form" onsubmit="prepareRequest(event)">
+      <span class="overline">LET'S START</span>
+      <h2>تفاصيل طلبك</h2>
+      <div class="form-grid">
+        <div>
+          <label for="full-name">الاسم الكامل *</label>
+          <input id="full-name" name="name" required minlength="2"
+            autocomplete="name" placeholder="اكتب اسمك الكامل">
+        </div>
+        <div>
+          <label for="phone">رقم الجوال *</label>
+          <input id="phone" name="phone" required type="tel"
+            autocomplete="tel" inputmode="tel"
+            pattern="[+0-9 ()-]{8,20}" placeholder="05xxxxxxxx">
+        </div>
+        <div>
+          <label for="email">البريد الإلكتروني</label>
+          <input id="email" name="email" type="email"
+            autocomplete="email" placeholder="name@company.com">
+        </div>
+        <div>
+          <label for="company">اسم المنشأة</label>
+          <input id="company" name="company"
+            autocomplete="organization" placeholder="اسم منشأتك إن وجد">
+        </div>
+      </div>
+      <label for="service">الخدمة أو الباقة *</label>
+      <select id="service" name="service" required>
+        <option value="">اختر الخدمة</option>
+        ${services.map((v,i) => `
+          <option ${id!==null&&Number(id)===i?'selected':''}>${v[0]}</option>`).join('')}
+        ${names.map((n,i) => `
+          <option ${pack!==null&&Number(pack)===i?'selected':''}>${n}</option>`).join('')}
+        <option>استفسار عام</option>
+      </select>
+      <label for="notes">تفاصيل احتياجك *</label>
+      <textarea id="notes" name="notes" required minlength="5"
+        placeholder="اشرح احتياجك وما ترغب في إنجازه..."></textarea>
+      <label class="consent" for="confirm">
+        <input id="confirm" type="checkbox" required>
+        أرغب في التواصل مع رفاء بشأن هذا الطلب.
+      </label>
+      <p class="form-note">
+        يفتح الزر رسالة جاهزة في واتساب. راجعها واضغط إرسال هناك لإيصال طلبك إلى الفريق.
+      </p>
+      <button class="btn dark" type="submit">تجهيز الطلب في واتساب ↗</button>
+      <p id="submit-status" class="submit-status" role="status"></p>
+      <p class="note">
+        يمكنك أيضًا التواصل عبر
+        <a href="mailto:Info@rafaabg.com" style="color:#a18443">البريد الإلكتروني</a>.
+        هذا النموذج لا يخزن بياناتك في الموقع.
+      </p>
+    </form>`;
+}
+function request(){
+  return `
+    ${hero('اطلب خدمتك','رتّب تفاصيل احتياجك، وابدأ التواصل مع فريق رفاء.')}
+    <section class="section alt">
+      <div class="contact-layout">
+        <aside class="contact-panel">
+          <span class="eyebrow" style="color:#d9bd80">نرافقك في الخطوة التالية</span>
+          <h2>طلب واضح،<br>وبداية مرتبة.</h2>
+          <p>عبّئ تفاصيل احتياجك، ثم افتح الرسالة في واتساب لتراجعها وترسلها إلى رفاء.</p>
+          <div class="contact-item">
+            <small>البريد الإلكتروني</small>
+            <a dir="ltr" href="mailto:Info@rafaabg.com">Info@rafaabg.com</a>
+          </div>
+          <div class="contact-item">
+            <small>اتصل بنا</small>
+            <a dir="ltr" href="tel:+966568310206">+966 56 831 0206</a>
+          </div>
+          <div class="contact-item">
+            <small>خطوات الطلب</small>
+            <p>توضيح الاحتياج ← مراجعة المتطلبات ← عرض السعر ← الاتفاق على التنفيذ</p>
+          </div>
+        </aside>
+        ${requestForm()}
+      </div>
+    </section>`;
+}
+function contact(){
+  return `
+    ${hero('تواصل معنا','يسعدنا الاستماع إلى احتياجك ومساعدتك في تحديد الخطوة القادمة.')}
+    <section class="section alt">
+      <div class="contact-layout">
+        <aside class="contact-panel">
+          <span class="eyebrow" style="color:#d9bd80">مجموعة رفاء للأعمال</span>
+          <h2>نحن هنا<br>لبداية أوضح.</h2>
+          <p>تواصل مباشرة مع فريقنا، أو جهّز رسالة بطلبك عبر النموذج.</p>
+          <div class="contact-item">
+            <small>واتساب الأعمال</small>
+            <a class="btn" href="https://wa.me/966568310206"
+              target="_blank" rel="noopener">ابدأ المحادثة ↗</a>
+          </div>
+          <div class="contact-item">
+            <small>الجوال</small>
+            <a dir="ltr" href="tel:+966568310206">+966 56 831 0206</a>
+          </div>
+          <div class="contact-item">
+            <small>البريد الإلكتروني</small>
+            <a dir="ltr" href="mailto:Info@rafaabg.com">Info@rafaabg.com</a>
+          </div>
+        </aside>
+        ${requestForm()}
+      </div>
+    </section>`;
+}
+function buildRequestMessage(data){
+  return [
+    'السلام عليكم، أرغب في طلب خدمة من مجموعة رفاء للأعمال.',
+    'الاسم: '+data.name,
+    'الجوال: '+data.phone,
+    data.email?'البريد: '+data.email:'',
+    data.company?'المنشأة: '+data.company:'',
+    'الخدمة: '+data.service,
+    'تفاصيل الطلب: '+data.notes
+  ].filter(Boolean).join('\n');
+}
+function prepareRequest(event){
+  event.preventDefault();
+  const form = event.target;
+  if(!form.reportValidity()) return;
+  const data = Object.fromEntries(new FormData(form).entries());
+  const url = 'https://wa.me/966568310206?text='+
+    encodeURIComponent(buildRequestMessage(data));
+  const status = document.getElementById('submit-status');
+  status.textContent = 'تم تجهيز الرسالة. راجعها في واتساب واضغط إرسال لإكمال الطلب.';
+  const link = document.createElement('a');
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener';
+  link.textContent = 'فتح رسالة الطلب في واتساب ↗';
+  link.className = 'link';
+  status.appendChild(document.createElement('br'));
+  status.appendChild(link);
+  window.open(url,'_blank','noopener');
+}
+let observer;
+function enhance(){
+  document.querySelectorAll('nav details').forEach(d => d.open=false);
+  document.querySelectorAll('.card .icon').forEach((e,i) => {
+    if(e.textContent.match(/[\u{1F300}-\u{1FAFF}]/u)){
+      e.innerHTML = lineIcon(i%4);
+    }
+  });
+  if(observer) observer.disconnect();
+  observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  },{threshold:.08});
+  document.querySelectorAll('.section .card,.section .step,.split').forEach(e => {
+    e.classList.add('observed');
+    observer.observe(e);
+  });
+  if(location.hash.startsWith('#/services')){
+    cat='الكل';
+    const c = new URLSearchParams(location.hash.split('?')[1]||'').get('category');
+    if(c){
+      const el = Array.from(document.querySelectorAll('.chip'))
+        .find(e => e.textContent===c);
+      if(el) filterServices(c,el);
+    }
+  }
+}
+function renderPage(){
+  document.querySelector('nav').classList.remove('open');
+  const p = location.hash.slice(1).split('?')[0]||'/';
+  app.innerHTML =
+    p==='/' ? home() :
+    p==='/services' ? serviceList() :
+    p.startsWith('/service/') ? detail(Number(p.split('/')[2])) :
+    p==='/request' ? request() :
+    p==='/about' ? about() :
+    p==='/vision' ? vision() :
+    p==='/faq' ? faq() :
+    p==='/packages' ? packages() :
+    p==='/contact' ? contact() : home();
+  window.scrollTo(0,0);
+  document.title = (app.querySelector('h1')?.textContent||'الرئيسية')+
+    ' | رفاء للأعمال';
+  app.classList.remove('reveal');
+  void app.offsetWidth;
+  app.classList.add('reveal');
+  document.querySelectorAll('nav a').forEach(a => {
+    a.classList.toggle('active',a.getAttribute('href')==='#'+p);
+  });
+  enhance();
+}
+let changing=false;
+function route(){
+  const progress=document.querySelector('.page-progress');
+  progress.style.width='65%';
+  if(document.startViewTransition &&
+     !matchMedia('(prefers-reduced-motion: reduce)').matches &&
+     !changing){
+    changing=true;
+    document.startViewTransition(renderPage).finished.finally(() => {
+      changing=false;
+      progress.style.width='0';
+    });
+  }else{
+    renderPage();
+    progress.style.width='0';
+  }
+}
+document.addEventListener('click',e => {
+  if(!e.target.closest('.dropdown')){
+    document.querySelectorAll('.dropdown').forEach(d => d.open=false);
+  }
+});
+window.addEventListener('hashchange',route);
+renderPage();
+</script>
+</body>
+</html>
