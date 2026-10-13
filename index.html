@@ -394,6 +394,63 @@ html[dir=ltr] .ministry-arrow{transform:scaleX(-1)}
 #app .banner{background:#071d46;border-top:2px solid #cba452}
 @media(max-width:600px){.ministry-list{padding:0 14px}.redesigned-hero:after{width:240px;height:240px;inset-inline-end:-170px;top:0}}
 
+
+/* Replacement homepage: compact split introduction and clean directory */
+.new-home-intro{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(210px,1fr);align-items:center;gap:70px;padding:60px 7%;max-width:1320px;margin:auto;background:#fff}
+.new-home-kicker{font-size:11px;letter-spacing:1.5px;color:#947537;font-weight:700}
+.new-home-copy h1{font-size:36px;line-height:1.5;color:#071d46;margin:12px 0 22px;font-weight:800}
+.new-home-copy h2{font-size:16px;color:#071d46;margin:0 0 10px;font-weight:700}
+.new-home-copy p{font-size:15px;line-height:2.1;color:#69768c;margin:0;max-width:630px}
+.new-home-actions{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin-top:25px}
+.new-home-contact{font-size:12px;color:#81652f;font-weight:700;white-space:nowrap}
+.new-home-brand{position:relative;background:#f8f9fb;border-radius:24px;padding:30px 24px;display:flex;flex-direction:column;align-items:center;gap:20px;border:1px solid #edf0f4}
+.new-home-brand:before{content:"";position:absolute;top:0;width:55px;height:3px;background:#cba452}
+.new-home-brand img{display:block;width:180px;height:180px;max-width:100%;object-fit:contain;border-radius:10px}
+.new-home-brand>span{font-size:12px;color:#071d46;letter-spacing:1px}
+.new-home-directory{background:#f6f8fb;padding:42px 7% 48px;border-block:1px solid #edf0f4}
+.new-home-directory-head{max-width:1130px;margin:0 auto 26px;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.new-home-directory-head h2{font-size:25px;color:#071d46;margin:8px 0 0;font-weight:700}
+.new-ministry-grid{max-width:1130px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.new-ministry-link{padding:19px 20px;background:white;border:1px solid #e7ecf3;border-radius:9px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;transition:border-color .2s,box-shadow .2s}
+.new-ministry-link:hover{border-color:#cba452;box-shadow:0 5px 18px #071d4608}
+.new-ministry-link strong{font-size:14px;font-weight:700;color:#132b50;line-height:1.7}
+.new-ministry-link>span{font-size:11px;color:#8792a4;display:flex;justify-content:space-between;align-items:center}
+.new-ministry-link b{font-size:18px;color:#b59451;font-weight:400}
+.platform-logos{padding:20px 7%;border-top:0}.platform-logo-row{max-width:900px;gap:30px}.platform-logo{height:50px}.platform-logo svg{max-width:95px;max-height:38px}
+.banner{margin:0;background:#071d46!important;border-top:0!important;padding:32px 7%;display:flex;align-items:center;justify-content:space-between}
+@media(max-width:800px){.new-home-intro{gap:28px;padding:38px 6%;grid-template-columns:minmax(0,1.5fr) minmax(150px,1fr)}.new-home-copy h1{font-size:28px}.new-home-brand{padding:25px 16px}.new-home-brand img{width:140px;height:140px}.new-ministry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.new-home-intro{grid-template-columns:1fr;gap:22px;padding:30px 6% 34px}.new-home-brand{grid-row:1;flex-direction:row;padding:16px 20px;justify-content:center;border-radius:12px;gap:16px}.new-home-brand img{width:75px;height:75px}.new-home-brand>span{font-size:11px;letter-spacing:.4px}.new-home-copy h1{font-size:27px;margin:9px 0 18px}.new-home-copy p{font-size:13px;line-height:2}.new-home-copy h2{font-size:15px}.new-home-actions{gap:18px;margin-top:20px}.new-home-directory{padding:30px 6%}.new-home-directory-head{align-items:flex-start;flex-direction:column;gap:12px;margin-bottom:20px}.new-home-directory-head h2{font-size:22px}.new-ministry-grid{gap:9px}.new-ministry-link{padding:14px 12px;gap:12px}.new-ministry-link strong{font-size:12px}.platform-logo-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px}.platform-logo{height:42px}.platform-logo svg{max-width:75px;max-height:30px}.banner{padding:28px 6%;align-items:flex-start;flex-direction:column;gap:18px}}
+
+
+/* New site silhouette: floating navigation and framed sections */
+html{background:#eef1f6}
+body{background:#eef1f6;color:#172e50;padding:0 18px 18px}
+.top{max-width:1180px;margin:auto;background:transparent;color:#65748a;padding:10px 16px;font-size:11px}
+.header{max-width:1180px;margin:0 auto 24px;background:#071d46;backdrop-filter:none;border:0;border-radius:22px;height:108px;padding:12px 26px;box-shadow:0 12px 32px #071d4614;top:12px}
+.logo{gap:12px}.logo img{width:80px;height:80px;background:#f7f7f7;border-radius:12px;padding:4px}.logo b{color:#fff}.logo small{color:#dec795}
+nav{color:#f4f6fa;gap:20px}nav a:hover,nav a.active{color:#dec795}.dropdown summary span{color:#dec795}.drop-panel{color:#172e50;border-radius:16px}.language-toggle{background:#ffffff12;color:white;border-color:#ffffff35}.header .btn{background:#dec795;color:#071d46}
+.menu{color:white;background:#ffffff12;border-color:#ffffff33}
+#app{max-width:1180px;margin:auto}
+.new-home-intro{max-width:none;grid-template-columns:minmax(0,1.45fr) minmax(220px,1fr);padding:48px 48px;gap:50px;background:white;border-radius:28px 28px 8px 28px;margin-bottom:18px;border:0;box-shadow:0 8px 24px #071d4604}
+.new-home-copy h1{font-size:35px}.new-home-copy h2{color:#987a3c}.new-home-brand{border:0;border-radius:60px 12px 60px 12px;background:#f2f4f8;padding:38px 24px;min-height:280px}.new-home-brand:before{display:none}.new-home-brand img{width:170px;height:170px}.new-home-brand>span{color:#78849a}
+.new-home-directory{padding:34px 38px 38px;margin-bottom:18px;background:white;border:0;border-radius:8px 28px 28px 28px}
+.new-home-directory-head{padding-bottom:20px;border-bottom:1px solid #edf0f5}.new-home-directory-head h2{font-size:25px}
+.new-ministry-grid{gap:14px}.new-ministry-link{background:#f4f6f9;border:0;border-radius:18px;padding:22px;position:relative;box-shadow:none}.new-ministry-link:hover{background:#eaf0f7;box-shadow:none}.new-ministry-link strong{font-size:14px}.new-ministry-link span{color:#728199}.new-ministry-link b{background:white;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;color:#071d46}
+#app>.platform-logos{border:0;border-radius:22px;background:white;margin-bottom:18px;padding:20px 28px}#app .platform-logo-row{max-width:870px;gap:24px}#app .platform-logo{height:46px}#app .platform-logo svg{max-width:90px;max-height:36px}
+#app>.banner{border:0!important;border-radius:24px;margin:0 0 22px;padding:32px 38px;background:linear-gradient(120deg,#102e53,#071d46)!important}.banner h2{font-size:25px}
+#app>.hero:not(.new-home-intro),#app>.section,#app>.intro-services{border-radius:24px;margin-bottom:18px;overflow:hidden;background:white}
+#app .card{border-radius:18px;border:1px solid #e9eef4;box-shadow:none}.card-media{border-radius:0}.detail-hero{border-radius:24px}.detail-aside{border-radius:18px}.chip{border-radius:20px}.search{border-radius:12px}input,select,textarea{border-radius:10px}
+.footer{max-width:1180px;margin:auto;background:#071d46;border-radius:24px;padding:36px 38px 20px}.footer-brand-logo{border-radius:12px}.footergrid{gap:36px}.copyright{border-color:#ffffff15}
+@media(max-width:1000px){nav{gap:11px;font-size:11px}.header{padding:12px 20px}.new-home-intro{padding:34px;gap:30px}.new-home-copy h1{font-size:30px}}
+@media(max-width:600px){
+body{padding:0 10px 10px}.top{padding:8px 8px;font-size:9px}.header{height:88px;padding:10px 13px;border-radius:17px;margin-bottom:14px;top:8px;gap:8px}.logo{gap:8px}.logo img{width:60px;height:60px;border-radius:9px}.logo b{font-size:11px}.logo small{font-size:7px;letter-spacing:.6px}.language-toggle{font-size:10px;padding:7px 9px}nav{color:#071d46}.header nav{background:#fff;border-radius:14px}.header nav a{color:#071d46}
+.new-home-intro{grid-template-columns:1fr;padding:24px 22px 28px;border-radius:22px 22px 7px 22px;margin-bottom:12px;gap:22px}.new-home-brand{grid-row:1;min-height:0;padding:18px;flex-direction:row;border-radius:32px 9px 32px 9px;justify-content:center;gap:18px}.new-home-brand img{width:85px;height:85px}.new-home-brand>span{font-size:10px}.new-home-copy h1{font-size:25px}.new-home-copy p{font-size:13px}.new-home-actions{gap:14px}
+.new-home-directory{padding:25px 18px;margin-bottom:12px;border-radius:7px 22px 22px 22px}.new-home-directory-head h2{font-size:21px}.new-home-directory-head{gap:12px;padding-bottom:16px}.new-ministry-grid{grid-template-columns:1fr;gap:9px}.new-ministry-link{flex-direction:row;align-items:center;padding:16px;border-radius:12px;gap:12px}.new-ministry-link strong{font-size:13px;flex:1}.new-ministry-link span{font-size:10px;gap:10px;flex-shrink:0}.new-ministry-link b{width:25px;height:25px;font-size:16px}
+#app>.platform-logos{padding:16px 18px;border-radius:17px;margin-bottom:12px}#app .platform-logo-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 18px}#app .platform-logo{height:40px}#app .platform-logo svg{max-width:76px;max-height:30px}
+#app>.banner{padding:26px 23px;border-radius:19px;margin-bottom:14px}.banner h2{font-size:21px}.footer{border-radius:19px;padding:30px 22px 18px}.footergrid{gap:23px}.footer-brand-logo{width:70px;height:70px}
+#app>.hero:not(.new-home-intro),#app>.section,#app>.intro-services{border-radius:19px;margin-bottom:12px}.section{padding:32px 22px}.detail-hero{border-radius:19px}
+}
+
 </style>
 </head>
 <body>
@@ -565,43 +622,18 @@ function faqItems(){
   ].map(x => `<details><summary>${x[0]}</summary><p>${x[1]}</p></details>`).join('');
 }
 function home(){
-  return `
-    <section class="hero simple-hero redesigned-hero">
-      <div class="reveal">
-        <span class="eyebrow">RAFAA BUSINESS GROUP</span>
-        <h1>مجموعة رفاء للأعمال</h1><span class="intro-label">نبذة عنا</span>
-        <p>نساند أصحاب الأعمال والمستثمرين في تأسيس منشآتهم وتطويرها، من خلال تنظيم الإجراءات ومتابعة الطلبات عبر الوزارات والمنصات الحكومية، بخطوات واضحة واهتمام بالتفاصيل.</p>
-        <div class="hero-buttons">
-          <a class="btn dark" href="#/request">ابدأ رحلتك معنا ←</a>
-          <a class="btn outline" href="#/contact">تواصل مع فريقنا</a>
-        </div>
-      </div>
-    </section>
-    <section class="section">${heading('خدماتنا','خدمات الوزارات والمنصات','اختر الجهة للاطّلاع على خدماتها.')}${groupTiles()}</section>
-    <section class="section">
-      ${heading('الآلية','رحلتك مع رفاء','من أول تواصل، وحتى اكتمال نطاق العمل.')}
-      <div class="steps">
-        ${[
-          ['01','اختر خدمتك','تصفح الخدمات وحدد احتياجك.'],
-          ['02','مراجعة الطلب','نراجع التفاصيل والمتطلبات.'],
-          ['03','الاتفاق والتنفيذ','نوضح نطاق العمل ونتابع إجراءاته.'],
-          ['04','تسليم المخرجات','نشاركك النتائج والخطوات التالية.']
-        ].map(x => `<div class="step"><b>${x[0]}</b><h3>${x[1]}</h3><p>${x[2]}</p></div>`).join('')}
-      </div>
-    </section>
-    <section class="section alt">
-      <div class="split">
-        <div>
-          <span class="overline">WE ARE HERE FOR YOU</span>
-          <h2>عندك استفسار؟<br>نساعدك تحدد البداية.</h2>
-          <p>تعرّف على طريقة طلب الخدمة، وكيف تُحدد المتطلبات والرسوم.</p>
-          <a class="link" href="#/faq">جميع الأسئلة الشائعة ←</a>
-        </div>
-        <div class="faq mini-faq">${faqItems()}</div>
-      </div>
-    </section>
-    ${platformLogos()}
-    ${cta()}`;
+  return `<section class="new-home-intro">
+    <div class="new-home-copy"><span class="new-home-kicker">RAFAA BUSINESS GROUP</span>
+      <h1>مجموعة رفاء للأعمال</h1><h2>نبذة عنا</h2>
+      <p>نساند أصحاب الأعمال والمستثمرين في تأسيس منشآتهم وتطويرها، من خلال تنظيم الإجراءات ومتابعة الطلبات عبر الوزارات والمنصات الحكومية، بخطوات واضحة واهتمام بالتفاصيل.</p>
+      <div class="new-home-actions"><a class="btn dark" href="#/request">ابدأ رحلتك معنا ←</a><a class="new-home-contact" href="#/contact">تواصل مع فريقنا ←</a></div>
+    </div>
+    <div class="new-home-brand"><img src="${embeddedImages.logo}" alt="شعار رفاء الأصلي"><span>Rafaa Business Group</span></div>
+  </section>
+  <section class="new-home-directory"><div class="new-home-directory-head"><div><span class="new-home-kicker">خدماتنا</span><h2>خدمات الوزارات والمنصات</h2></div><a href="#/services" class="new-home-contact">عرض جميع الخدمات ←</a></div>
+  <div class="new-ministry-grid">${authorityGroups.map(g=>`<a class="new-ministry-link" href="#/services?platform=${g.slug}"><strong>${g.ar}</strong><span>${catalog.filter(v=>v.group===g.slug).length} خدمة <b aria-hidden="true">←</b></span></a>`).join('')}</div></section>
+  ${platformLogos()}
+  ${cta()}`;
 }
 let cat='الكل';
 let directoryPage=1;
